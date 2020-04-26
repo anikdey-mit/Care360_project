@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Safety Feedback</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lightbox.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+    <!-- [if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+    <![endif] -->
+    <link rel="shortcut icon" href="static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="static/images/ico/apple-touch-icon-57-precomposed.png">
+</head>
+<!--/head-->
+
+<body>
+    <header id="header">
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">
+                        <h1><img src="static/images/logo-care360.png" alt="logo" class="img-fluid" height="75px"
+                                width="75px"> Care 360</h1>
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="dropdown"><a href="#">Home Safety<i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="{{ url_for('safety_questionnaire')}}">Home Safety Questionnaire</a></li>
+                                <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li>
+                                <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
+                                <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
+
+                            </ul>
+                        </li>
+                        <li><a href="{{ url_for('login') }}">Admin Login</a></li>
+                        <!-- <li><a href="#">Credits</a></li> -->
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!--/#header-->
+
+    <section id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="main-slider">
+                    <div class="slide-text">
+                        <h1>Put on Your Capes, Time to change the world</h1>
+                        <p>
+                            "There is a superhero in all of us, we just need the courage to put on the cape." -
+                            Superman. Lets be a superman/supergirl for your grandparents.
+                        </p>
+
+                    </div>
+                    <img src="static/images/Photos/kids/superherogirl.png" class="slider-hill" alt="slider image"
+                        height="350px" width="350px">
+                    <img src="static/images/home/slider/birds1.png" class="slider-birds1" alt="slider image">
+                    <img src="static/images/home/slider/birds2.png" class="slider-birds2" alt="slider image">
+
+                </div>
+            </div>
+        </div>
+        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+    </section>
+    <!--/#home-slider-->
+
+    <section "portfolio-information" class="padding-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h1 class="title">Feedbacks of Safety Questionnaires</h1>
+                        <p> Congratulations! You've completed the questionnaire. Now check the recommendations below.
+                        </p>
+                        <p><img src="static/images/Photos/kids/Artboard 31.png" class="img-responsive"
+                                alt="detective image" width="20%"></p>
+                    </div>
+                    <section id="action" class="responsive">
+                        <div class="vertical-center">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="action take-tour">
+                                        <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms"
+                                            data-wow-delay="300ms">
+                                            <h1 class="title" align="center"><strong> Thank You
+                                                    {{ session['kid_name'] }}, here is the recommendations corresponding
+                                                    to your
+                                                    response.</strong></h1>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {% if session['kid_name'] %}
+
+                    <br>
+                    <form method="post" class="form-group">
+                        <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                            <ul>
+                                <li>
+                                    <h4>Q1. Do you notice your grandparents stumble or shake while they are standing?
+                                    </h4>
+                                    <p><img src="static/images/Photos/feedback/standing.jpg" class="img-responsive"
+                                            alt="" width="15%"></p>
+                                    {% if session['unsteady_standing'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation: Ask your grandparents to talk with doctors/occupational
+                                            therapist/community nurse. Recommend
+                                            your grandparent to use the walking stick or walker if necessary.</strong></h4>
+                                    {% else %}
+                                    <h4><strong>You selected NO. Our Recommendation: Pick up things scattered on the floor of your grandparents house so
+                                            your
+                                            grandparents won’t step on
+                                            them and get injured. Make sure their house floor are clear from unnecessary things scattered on floor.</strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q2. Do you think which of these areas in your grandparent's house is always wet?
+                                    </h4>
+                                    <p><img src="static/images/Photos/feedback/wtf.png" class="img-responsive" alt=""
+                                            width="25%"></p>
+                                    {% if session['water_presence'] == 'None of above' %}
+                                    <h4><strong>You selected None of above. Great, Always take cautions of the sanity of
+                                            floor
+                                            in your grandparent’s house
+                                            from time to time.</strong></h4>
+                                    {% else %}
+                                    <h4><strong>There is a possiblty of fall related Injuries. Our Recommendation: Look if the floor is wet, dry it with a mop. Also, mop any wet puddles as soon as possible as you see it.
+                                    </strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q3. Do you think your grandparents can reach things easily in the kitchen?</h4>
+                                    <p><img src="static/images/Photos/feedback/kit.png" class="img-responsive" alt=""
+                                            width="25%"></p>
+                                    {% if session['kitchen_reach'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation: Provide your grandparent’s with a
+                                            step
+                                            stool. Look for a stool no more
+                                            than one or two steps in height.</strong></h4>
+                                    {% else %}
+                                    <h4><strong></i>You selected NO. Our Recommendation: Arrange the items in the kitchen so it will be easy to reach the items by your grandparents that need to be used frequently. Place them between hip and eye level. Wall ovens at waist height are better than low ovens.
+                                    </strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q4. Do you see slippery products like mats, rugs in your grandparent's house?
+                                    </h4>
+                                    {% if session['slip_products'] == 'None of above' %}
+                                    <h4><strong></i>You selected None of above. Be cautious of other things that might
+                                            cause
+                                            slip, like plastic chairs and wet
+                                            puddles on the floor.</strong></h4>
+                                    {% else %}
+                                    <h4><strong>The item you selected may cause slip and injury from this. Check and
+                                            remove
+                                            these products or make sure they
+                                            are firmly secured and are nonslip. There are non-slip products available
+                                            from
+                                            hardware stores that can be
+                                            applied to floors.</strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q5. Do you see electrical cords of the following appliances running across your
+                                        grandparent's house?</h4>
+                                    <p><img src="static/images/Photos/feedback/cords.png" class="img-responsive" alt=""
+                                            width="25%"></p>
+                                    {% if session['electrical_cords'] == 'None of above' %}
+                                    <h4><strong></i>You selected None of above. Our Recommendation: If you see wires or cords in your grandparent's home any time, tell about it to your grandparents and help them put these cords at the corner or in safe drawers.
+                                    </strong></h4>
+                                    {% else %}
+                                    <h4><strong>The item you selected may cause falls. Avoid having electrical extension cords running across floors by having an electrician install additional power points. If you are unable to install additional power points, then move the cord to run along the walls, not across the floor. The cords can be secured with self-adhesive cord clips that attach to the base of the wall.
+                                    </strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q6. Do you think there are handrails for stairs in your grandparent's house?
+                                    </h4>
+                                    {% if session['stairs_handrails'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation: Handrail height should not be less than 900mm or more than 1100mm. Make sure there are handrails on at least one side of all steps and stairways. Ideally, there should be handrails on both sides of steps and stairways. If not recommend your grandparents about this and ask them to get the handrails fitted.
+                                    </strong></h4>
+                                    {% else %}
+                                    <h4><strong>You selected NO. Our Recommendation: Try to ask your parents to contact someone who can install handrails, since old people are more likely to get hurt if there is no hand assist if they go down/upstairs
+                                    </strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q7. Do you think the paths around your grandparent's house are cracked?</h4>
+                                    <p><img src="static/images/Photos/feedback/house_path.png" class="img-responsive"
+                                            alt="" width="25%"></p>
+                                    {% if session['path_checked'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation:  Check for broken pavers and tell them about them to your grandparents that these might cause injuries. Help your grandparents to remove pots and gardening tools from the garden pathways.
+                                    </strong></h4>
+                                    {% else %}
+                                    <h4><strong>You selected NO. Our Recommendation: Make sure the paths around house is
+                                            smooth
+                                            to walk so that the elderly
+                                            wouldn’t fall because of bad path.</strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q8. Do you notice adequate lighting all over your grandparent's house?</h4>
+                                    <p><img src="static/images/Photos/feedback/light.png" class="img-responsive" alt=""
+                                            width="25%"></p>
+                                    {% if session['adequate_light'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation: Ask your parents who can help setting
+                                            some
+                                            bulbs where the places have
+                                            inadequate light.</strong></h4>
+                                    {% else %}
+                                    <h4><strong>You selected NO. Our Recommendation: Well Done. If you can use LED lights it can save lot of energy as well..</strong>
+                                    </h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q9. Do you see your grandparent's struggle while walking?</h4>
+                                    <p><img src="static/images/Photos/feedback/walk.png" class="img-responsive" alt=""
+                                            width="25%"></p>
+                                    {% if session['walk_difficulty'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation: Recommend your grandparent use the
+                                            walking
+                                            stick or walker if
+                                            necessary.</strong></h4>
+                                    {% else %}
+                                    <h4><strong>You selected NO. Our Recommendation: Always take cautions of the sanity
+                                            of floor
+                                            and remove items dropped on
+                                            the floor from time to time.</strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q10. Do you see grab bars in your grandparent's bathroom?</h4>
+                                    {% if session['grab_bars'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation: Tell your grandparents to be cautious of stepping out of after bath or shower since it might be slippery.</strong></h4>
+                                    {% else %}
+                                    <h4><strong>You selected NO. Our Recommendation: Grab rails should be installed in
+                                            bathroom
+                                            since none of taps, towel
+                                            rail or walls is designed for hold.</strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q11. Do you see your grandparents having difficulty getting out of a chair or
+                                        couch?
+                                    </h4>
+                                    {% if session['difficulty_chair'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation: Recommend supports (assistive
+                                            walking
+                                            devices cane, walker,
+                                            wheelchair within reach of them) to them, and ask  your parents to buy one for your grandparents.</strong></h4>
+                                    {% else %}
+                                    <h4><strong>You selected NO. Our Recommendation: Remove things on the floor which
+                                            might
+                                            cause difficulty when your
+                                            grandparents move around the house.</strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q12. Do you think the stairs at your grandparent's house are slippery?</h4>
+                                    {% if session['stairs_condition'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation: Cover stairs with rugs so it is not slippery for your grandparents.</strong></h4>
+                                    {% else %}
+                                    <h4><strong>You selected NO. Our Recommendation: Make sure the handrails are
+                                            installed for
+                                            your grandparents to hold.
+                                        </strong>
+                                    </h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q13. Are smoke detectors installed and working properly in your grandparent's
+                                        house?
+                                    </h4>
+                                    {% if session['smoke_detector'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation: Ask your parents to make sure professional staff checks the smoke detectors once or twice a year in your grandparents house.</strong></h4>
+                                    {% else %}
+                                    <h4><strong>You selected NO. Our Recommendation: Make sure you see smoke detectors in your grandparent's house in the living area, outside the kitchen. Also, see if it blinks red or not. If not let it know to your parents or grandparents.
+                                    </strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q14. Is there a fire extinguisher in your grandparent's kitchen?</h4>
+                                    <p><img src="static/images/Photos/feedback/fire_exi.png" class="img-responsive"
+                                            alt="" width="25%"></p>
+                                    {% if session['fire_extinguisher'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation: Make sure the fire extinguisher is
+                                            not
+                                            expired, so check its date. If expired inform your grandparents about it.</strong></h4>
+                                    {% else %}
+                                    <h4><strong>You selected NO. Our Recommendation: Ask your grandparents to install fire extinguisher in the kitchen and also tell them about its use.</strong></h4>
+                                    {% endif %}
+                                </li>
+                                <br><br>
+
+                                <li>
+                                    <h4>Q15. Ask your grandparent's if they have some emergency contact details with
+                                        them?</h4>
+                                    {% if session['emergency_contact'] == 'Yes' %}
+                                    <h4><strong>You selected YES. Our Recommendation: Let them put these emergency
+                                            contact
+                                            details in their pocket wherever they go.
+                                        </strong>
+                                    </h4>
+                                    {% else %}
+                                    <h4><strong>You selected NO. Our Recommendation: Write down at least one emergency
+                                            contact
+                                            number of family member or
+                                            friend of grandparent and put it in pocket when they go out.</strong></h4>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+                    {% else %}
+                    <h2> please fill the questionnaire first</h2>
+                    <a href="{{ url_for('safety_questionnaire') }}">Go to questionnaire page</a>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br><br><br>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center bottom-separator">
+                    <img src="static/images/home/under.png" class="img-responsive inline" alt="">
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>Care360</p>
+                        <p>
+                            Disclaimer: We provide recommendations on the basis of Australian Government Home
+                            Safety,Diet and Physical Activity Guidelines for Older people.
+                        </p>
+                        <p> Credits : WebUi Theme by Themeum</p>
+                        <p> Credits Images : Freepik.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="static/js/wow.min.js"></script>
+    <script type="text/javascript" src="static/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>General Safety Recommendations</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lightbox.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+    <!-- [if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+    <![endif] -->
+    <link rel="shortcut icon" href="static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="static/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+	<header id="header">
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">
+                    	<h1><img src="static/images/logo-care360.png" alt="logo" class="img-fluid"height="75px"
+                            width="75px"> Care 360</h1>
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="dropdown"><a href="#">Home Safety<i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="{{ url_for('safety_questionnaire')}}">Home Safety Questionnaire</a></li>
+                                <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li>
+                                <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
+                                <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
+
+                            </ul>
+                        </li>
+                        <!-- <li class="dropdown"><a href="#">Healthy Diet<i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                            </ul>
+                        </li> -->
+                        <!-- <li class="dropdown"><a href="#">Physical Activity<i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="#">1t</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                            </ul>
+                        </li> -->
+                        <li><a href="{{ url_for('login') }}">Admin Login</a></li>
+                        <!-- <li><a href="#">Credits</a></li> -->
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!--/#header-->
+
+    <section id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="main-slider">
+                    <div class="slide-text">
+                        <h1>Time to be an armour for grandparent</h1>
+                        <h4>
+                            "Precaution is better than cure.""
+                        </h4>
+                    </div>
+                    <img src="static/images/Photos/kids/Artboard_1.png" class="slider-hill" alt="slider image" height="350px" width="350px">
+                    <img src="static/images/home/slider/birds1.png" class="slider-birds1" alt="slider image">
+                   <!-- <img src="static/images/home/slider/birds2.png" class="slider-birds2" alt="slider image"> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+    </section>
+    <!--/#home-slider-->
+<br>
+<br>
+
+
+<section id="clients">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <h1 class="title">General Safety Recommendations</h1><br><br>
+                    <p><img src="static/images/safetyworker.jpg" class="img-responsive" alt="detective image"
+                            width="20%">
+                    </p>
+                </div>
+                <h2 class="title" align="center"> Please read the instructions below and follow these in your day to day life.
+                    Also, look around you and your grandparent's house and try to follow safety instructions and make your house safer.
+                </h2>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="features">
+    <div class="container">
+        <div class="row">
+            <div class="single-features">
+                <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <img src="static/images/Photos/light.png" class="img-responsive" alt="">
+                </div>
+                <div class="col-sm-6 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <h2>Adequate Lighting</h2>
+                    <ul class="elements">
+                        <li><i class="fa fa-angle-right"></i> Make sure there are adequate lighting in stairs,garage,walkways,at all doors in your grandparents house.</li>
+                        <li><i class="fa fa-angle-right"></i> Replace any burnt-out light bulbs.</li>
+                        <li><i class="fa fa-angle-right"></i> Try to install motion detection lighting inside and outside the home.</li>
+                        <li><i class="fa fa-angle-right"></i>Install a nightlight in the bathroom. This will help your grandparents who may make repeated trips to the bathroom overnight. Install a nightlight or two on the route to the bathroom as well so that they can find their way.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="single-features">
+                <div class="col-sm-6 col-sm-offset-1 align-right wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <h2>Living room safety</h2>
+                    <P>
+                        <ul class="elements">
+                        <li><i class="fa fa-angle-right"></i> Make sure the floors are slip resistant.</li>
+                        <li><i class="fa fa-angle-right"></i> There should be no unobstructed path through the room (no clutter, cords, wires, baskets or other things to trip
+                            over).</li>
+                        <li><i class="fa fa-angle-right"></i> Create a more open environment with no objects on the floor.</li>
+                        <li><i class="fa fa-angle-right"></i> With your parents move large, heavy, or breakable decorative objects away from the edges of tables and off low hanging shelves in your grandparents house.</li>
+                    </ul>
+                    </P>
+                </div>
+
+                <div class="col-sm-5 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <img src="static/images/Photos/livingroom.png" class="img-responsive" alt="">
+                </div>
+            </div>
+
+            <div class="single-features">
+                <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <img src="static/images/Photos/bedroom.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="col-sm-6 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <h2>Bedroom Safety</h2>
+                        <ul class="elements">
+                            <li><i class="fa fa-angle-right"></i> Make sure to remove hazardous items,such as electric blankets and hot water
+                                bottles from your grandparent's bedroom.</li>
+                            <li><i class="fa fa-angle-right"></i> Remove candles from the room.If left burning and unattended, candles can start a fire in the house.</li>
+                            <li><i class="fa fa-angle-right"></i> Make sure of having a light at the entrance to the room of your grandparents and reachable from the
+                                bed.</li>
+                            <li><i class="fa fa-angle-right"></i> Make sure having a telephone and assistive walking devices (cane, walker,
+                                wheelchair) within reach of your grandparents bed(within hand distance).</li>
+                        </ul>
+                </div>
+            </div>
+            <div class="single-features">
+                <div class="col-sm-6 col-sm-offset-1 align-right wow fadeInLeft" data-wow-duration="500ms"
+                    data-wow-delay="300ms">
+                    <h2>Kitchen Safety</h2>
+
+                        <ul class="elements">
+                            <li><i class="fa fa-angle-right"></i> Make sure gas access to the stove been controlled (knobs removed, lock on oven door, stove connected to hidden circuit breaker or gas valve).</li>
+                            <li><i class="fa fa-angle-right"></i> Label all drawers and cabinets with safe objects in your grandparents house.</li>
+                            <li><i class="fa fa-angle-right"></i> Make sure sharp knives and other dangerous implements been removed or locked up in your grandparents kitchen. Take your parents help in that.</li>
+                            <li><i class="fa fa-angle-right"></i> Try to put rubberized water faucet covers for the kitchen sink. These can be easier to grip and turn and are color-coded: red for hot and blue for cold.</li>
+                        </ul>
+                </div>
+                <div class="col-sm-5 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <img src="static/images/Photos/kitchen.png" class="img-responsive" alt="">
+                </div>
+            </div>
+            <div class="single-features">
+                <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <img src="static/images/Photos/bathroom.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="col-sm-6 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <h2>Bathroom Safety</h2>
+                    <ul class="elements">
+                        <li><i class="fa fa-angle-right"></i> Recommend you grandparents to replace bathtub with walk in models.</li>
+                        <li><i class="fa fa-angle-right"></i> Put rubber mats in the your grandparents bathtub to prevent slipping.</li>
+                        <li><i class="fa fa-angle-right"></i> Ask your parents to set the thermostat on the water heater no higher than 120° F to prevent accidental burns to your grandparents.</li>
+                        <li><i class="fa fa-angle-right"></i> Make sure a shower or bath seat is present in your grandparents bathroom to allow them to direct the flow of water desired.</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="single-features">
+                <div class="col-sm-6 col-sm-offset-1 align-right wow fadeInLeft" data-wow-duration="500ms"
+                    data-wow-delay="300ms">
+                    <h2>Shower Safety</h2>
+                    <ul class="elements">
+                        <li><i class="fa fa-angle-right"></i> Place a non skid bathmat in your grandparents washroom and bathtub..</li>
+                        <li><i class="fa fa-angle-right"></i> Install grab bars in the shower for your grandparents.</li>
+                        <li><i class="fa fa-angle-right"></i> Placing shampoo, soap and other toiletries where they can be reached easily by your grandparents possibly two - three feet above surface..</li>
+                    </ul>
+                </div>
+                <div class="col-sm-5 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <img src="static/images/Photos/shower.jpg" class="img-responsive" alt="">
+                </div>
+            </div>
+            <div class="single-features">
+                <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <img src="static/images/Photos/laundry.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="col-sm-6 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <h2>Laundry Safety</h2>
+                    <ul class="elements">
+                        <li><i class="fa fa-angle-right"></i> Make sure having a non-slip floor surface in your grandparents laundry room.</li>
+                        <li><i class="fa fa-angle-right"></i> Mark all detergent containers in your grandparents laundry room..</li>
+                        <li><i class="fa fa-angle-right"></i> Keep machine doors locked, even when the cycle is off.</li>
+                        <li><i class="fa fa-angle-right"></i> Make sure that your loved one wears non-slip footwear or place them at the entry of laundry room..</li>
+                        <li><i class="fa fa-angle-right"></i> Recommend your grandparents to use top loader washing machine.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="single-features">
+                <div class="col-sm-6 col-sm-offset-1 align-right wow fadeInLeft" data-wow-duration="500ms"
+                    data-wow-delay="300ms">
+                    <h2>Toilet Safety</h2>
+                    <ul class="elements">
+                        <li><i class="fa fa-angle-right"></i> Make sure sturdy grab bars at the toilet (or toilet arms and a raised seat) in your grandparents toilets are present.</li>
+                        <li><i class="fa fa-angle-right"></i> Make sure toilet paper easily reachable from the toilet seat within a hand distance.</li>
+                        <li><i class="fa fa-angle-right"></i> Help your grandparents to clean the tub regularly.</li>
+                        <li><i class="fa fa-angle-right"></i> Replace the original toilet seat with a raised toilet seat with handlebars. Toilets should be between 17 and 19 inches in height. Seniors will find it easier to sit and stand.</li>
+                    </ul>
+                </div>
+                <div class="col-sm-5 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <img src="static/images/Photos/toilet.jpg" class="img-responsive" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!--/#clients-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center bottom-separator">
+                    <img src="static/images/home/under.png" class="img-responsive inline" alt="">
+                </div>
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>Care360</p>
+                        <p>
+                            Disclaimer: We provide recommendations on the basis of Australian Government Home Safety,Diet and Physical Activity Guidelines for Older people.
+                        </p>
+                        <p> Credits : WebUi Theme by Themeum</p>
+                        <p> Credit Images: Freepik.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="static/js/wow.min.js"></script>
+    <script type="text/javascript" src="static/js/main.js"></script>
+</body>
+</html>

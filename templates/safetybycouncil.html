@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Safety By Coouncil</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lightbox.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+    <!-- [if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+    <![endif] -->
+    <link rel="shortcut icon" href="static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="static/images/ico/apple-touch-icon-57-precomposed.png">
+</head>
+<!--/head-->
+
+<body>
+    <header id="header">
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">
+                        <h1><img src="static/images/logo-care360.png" alt="logo" class="img-fluid"height="75px"
+                            width="75px"> Care 360</h1>
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="dropdown"><a href="#">Home Safety<i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="{{ url_for('safety_questionnaire')}}">Home Safety Questionnaire</a></li>
+                                <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li>
+                                <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
+                                <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
+
+                            </ul>
+                        </li>
+                        <!-- <li class="dropdown"><a href="#">Healthy Diet<i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                            </ul>
+                        </li> -->
+                        <!-- <li class="dropdown"><a href="#">Physical Activity<i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="#">1t</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                            </ul>
+                        </li> -->
+                        <li><a href="{{ url_for('login') }}">Admin Login</a></li>
+                        <!-- <li><a href="#">Credits</a></li> -->
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!--/#header-->
+
+    <section id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="main-slider">
+                    <div class="slide-text">
+                        <h1>With great power comes great responsibility</h1>
+                        <p>
+                            "You don't need to be strong like a superhero, you just need to be better than you were yesterday". Lets show your super powers to your grandparents.
+                        </p>
+
+                    </div>
+                    <img src="static/images/Photos/kids/girlwithcape.png" class="slider-hill" alt="slider image" height="350px" width="350px">
+                    <img src="static/images/home/slider/birds1.png" class="slider-birds1" alt="slider image">
+                    <!-- <img src="static/images/home/slider/birds2.png" class="slider-birds2" alt="slider image"> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+    </section>
+    <!--/#home-slider-->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                            <img src="static/images/disaster/floodhouse.png" alt="">
+                        </div>
+                        <h2>Flood</h2>
+                        <p>Mother Nature can be upset sometimes with the effects of flood. It is an overflow of a large amount of water beyond its normal limits, especially over what is normally dry land.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
+                            <img src="static/images/disaster/housefire.png" alt="">
+                        </div>
+                        <h2>Bush Fire</h2>
+                        <p>Did you know thta bush fire can cause a lot of destruction to your house.Prepare your grandparents house for this inevitable well before in advance.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
+                            <img src="static/images/disaster/storm.png" alt="">
+                        </div>
+                        <h2>Storm</h2>
+                        <p>Storm is usually a violent disturbance of the atmosphere with strong winds and usually rain, thunder, lightning, or snow. Gear up and prepare your grandparents house for these events.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <section id="action" class="responsive">
+        <div class="vertical-center">
+            <div class="container">
+                <div class="row">
+                    <div class="action take-tour">
+                        <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms" align="center">
+                            <h1 class="title">Prepare Your Grandparents house for any inevitable natural disaster.</h1>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#action-->
+
+    <br>
+    <br>
+    <section id="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h2 class="title">Be your own captain and help your grandparents</h2>
+                        <p><img src="static/images/disaster/captain.png" class="img-responsive" alt="detective image" width="20%"></p>
+                    </div>
+                    <h2 class="title" align="center"> Please select the council where your grandparents live. Currently we support only few councils.</h2>
+                    <br>
+                    <br>
+                    <br>
+                    <form method="post">
+                        <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                            {{ form.hidden_tag() }} {{ form.council_name.label}}
+                            <br>{{form.council_name}}
+                            <br>
+                            <br> {{ form.submit(class= "btn btn-success")}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center bottom-separator">
+                    <img src="static/images/home/under.png" class="img-responsive inline" alt="">
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>Care360</p>
+                        <p>
+                            Disclaimer: We provide recommendations on the basis of Australian Government Home Safety,Diet and Physical Activity Guidelines for Older people.
+                        </p>
+                        <p> Credits : WebUi Theme by Themeum</p>
+                        <p> Credit Images: Freepik.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="static/js/wow.min.js"></script>
+    <script type="text/javascript" src="static/js/main.js"></script>
+</body>
+
+</html>
