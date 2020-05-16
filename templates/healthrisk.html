@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Health Risk Assessment</title>
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/lightbox.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/flipcard.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+  <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/healthcarousel.css') }}" rel="stylesheet">
+  <script type="text/javascript">
+      $(function () {
+          $("#gender_male").hide();
+          $("#gender_male_pic").hide();
+          $("#male_height").hide();
+          $("#male_walking").hide();
+          $("#male_walking_image").hide();
+          $("#male_children").hide();
+          $("#male_smoke").hide();
+          $("#male_weight").hide();
+
+          $("input[name='gender']").on('change', function(e){
+            box_value = $(this).val();
+            // console.log($(this).val());
+            if (box_value === "0") {
+                    $("#gender_male").hide();
+                    $("#gender_male_pic").hide();
+                    $("#gender_female").show();
+                    $("#gender_female_pic").show();
+                    $("#male_height").hide();
+                    $("#female_height").show();
+                    $("#male_walking").hide();
+                    $("#female_walking").show();
+                    $("#male_walking_image").hide();
+                    $("#female_walking_image").show();
+                    $("#male_children").hide();
+                    $("#female_children").show();
+                    $("#male_smoke").hide();
+                    $("#female_smoke").show();
+                    $("#male_weight").hide();
+                    $("#female_weight").show();
+                    // document.getElementById("stairs_handrails").style.visibility = "hidden"
+                } else {
+                  $("#gender_male").show();
+                  $("#gender_male_pic").show();
+                  $("#gender_female").hide();
+                  $("#gender_female_pic").hide();
+                  $("#male_height").show();
+                  $("#female_height").hide();
+                  $("#male_walking").show();
+                  $("#female_walking").hide();
+                  $("#male_walking_image").show();
+                  $("#female_walking_image").hide();
+                  $("#male_children").show();
+                  $("#female_children").hide();
+                  $("#male_smoke").show();
+                  $("#female_smoke").hide();
+                  $("#male_weight").show();
+                  $("#female_weight").hide();
+
+                    // document.getElementById("stairs_handrails").style.visibility = "none"
+                }
+          })
+      })
+  </script>
+  <script type="text/javascript">
+  function age_verification() {
+      var age = document.getElementById("age").value;
+      if(!age.match(/^\d+$/))
+        {
+        alert("Please only enter numeric characters only for age")
+        }
+
+  }
+
+  function centimeter_verification() {
+      var height_centimeters= document.getElementById("height_centimeters").value;
+      if(!height_centimeters.match(/^\d+$/))
+        {
+        alert("Please only enter numeric characters centimeters")
+        }
+
+  }
+
+  function feet_verification() {
+    var height_feet = document.getElementById("height_feet").value;
+    if(!height_feet.match(/^\d+$/))
+      {
+      alert("Please only enter numeric characters for feet")
+      }
+    if (height_feet < 3 || height_feet > 8){
+      alert("feet value should be between 3 and 9")
+    }
+  }
+
+  function inches_verification() {
+    var height_inches = document.getElementById("height_inches").value;
+    if(!height_inches.match(/^\d+$/))
+      {
+      alert("Please only enter numeric characters for inches")
+      }
+    if (height_inches < 1 || height_inches > 12){
+      alert("feet value should be between 1 and 12")
+    }
+  }
+
+  function child_verification() {
+    var children = document.getElementById("children").value;
+    if(!children.match(/^\d+$/))
+      {
+      alert("Please only enter numeric characters for children")
+      }
+    if (children < 1 || children > 20){
+      alert("Number of child should be between 1 and 20")
+    }
+  }
+  function pound_verification() {
+    var pound = document.getElementById("weight_pounds").value;
+    if(!pound.match(/^\d+$/))
+      {
+      alert("Please only enter numeric characters for pounds")
+      }
+
+
+  }
+  function kilogram_verification() {
+    var kilogram = document.getElementById("weight_kilograms").value;
+    if(!kilogram.match(/^\d+$/))
+      {
+      alert("Please only enter numeric characters for kgs")
+      }
+  }
+
+  function validateForm() {
+    var pound = document.getElementById("weight_pounds").value;
+    var kilogram = document.getElementById("weight_kilograms").value;
+    var height_feet = document.getElementById("height_feet").value;
+    var height_centimeters= document.getElementById("height_centimeters").value;
+    var height_inches = document.getElementById("height_inches").value;
+    var age = document.getElementById("age").value;
+    var weight_unit = document.getElementById("weight_unit").value;
+    var height_unit = document.getElementById("height_unit").value;
+    console.log(weight_unit)
+
+    if (weight_unit == "Pounds" && (pound == null || pound == "")){
+      alert('Please fill the pound value')
+      return false;
+    }
+    if (weight_unit == "Kilograms" && (kilogram == null || kilogram == "")){
+      alert('Please fill the kilograms')
+      return false;
+    }
+    if (height_unit == "Feets" && (height_feet == null || height_feet == "")){
+      alert('Please fill the height in feets')
+      return false;
+    }
+    if (height_unit == "Centimeters" && (height_centimeters == null || height_centimeters == "")){
+      alert('Please fill the height in centimeters')
+      return false;
+    }
+    if (height_unit == "Feets" && (height_inches == null || height_inches == "")){
+      alert('Please fill the height inches')
+      return false;
+    }
+
+    //
+    // if (weight_unit === "Pounds" && pound == null || pound == "", weight_unit === "Kilograms" && kilogram == null || kilogram == "", height_unit === "Feets" && height_feet == null || height_feet == "", height_unit === "Centimeters" && height_centimeters == null || height_centimeters == "", height_unit=== "Feets" && height_inches == null || height_inches == ""){
+    //   alert('Please fill all the values')
+    //   return false;
+    // }
+
+  }
+  </script>
+  <script type="text/javascript">
+  $(function () {
+      $("#centimeters_height").hide();
+  })
+
+
+  function height_function() {
+      let box_value = document.getElementById("height_unit").value;
+      //console.log(box_value);
+      //console.log($("#stairs_handrails"));
+      if (box_value === "Feets") {
+          $("#centimeters_height").hide();
+          $("#feets_height").show();
+          // document.getElementById("stairs_handrails").style.visibility = "hidden"
+      } else {
+        $("#centimeters_height").show();
+        $("#feets_height").hide();
+          // document.getElementById("stairs_handrails").style.visibility = "none"
+      }
+  }
+
+  $(function () {
+      $("#kilograms_weight").hide();
+  })
+
+
+  function weight_function() {
+      let box_value = document.getElementById("weight_unit").value;
+      //console.log(box_value);
+      //console.log($("#stairs_handrails"));
+      if (box_value === "Pounds") {
+          $("#pounds_weight").show();
+          $("#kilograms_weight").hide();
+          // document.getElementById("stairs_handrails").style.visibility = "hidden"
+      } else {
+        $("#pounds_weight").hide();
+        $("#kilograms_weight").show();
+          // document.getElementById("stairs_handrails").style.visibility = "none"
+      }
+  }
+
+
+
+  </script>
+
+
+
+  <!-- [if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif] -->
+  <link rel="shortcut icon" href="static/images/ico/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144"
+    href="static/images/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114"
+    href="static/images/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/images/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="static/images/ico/apple-touch-icon-57-precomposed.png">
+</head>
+<!--/head-->
+
+<body>
+  <header id="header">
+    <div class="navbar navbar-inverse" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{{ url_for('index') }}">
+            <h1><img src="static/images/logo-care360.png" alt="logo" class="img-fluid" height="75px" width="75px"> Care
+              360</h1>
+          </a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="{{ url_for('index') }}">Home</a></li>
+              <li  class="active"><a href="{{ url_for('healthrisk')}}">Risk Assessment</a></li>
+              <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
+              <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
+              <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
+              <li ><a href="{{ url_for('login') }}">Admin Login</a></li>
+              <!-- <li><a href="#">Credits</a></li> -->
+          </ul>
+      </div>
+
+      </div>
+    </div>
+  </header>
+  <!--/#header-->
+
+  <section id="home-slider">
+    <div class="container">
+      <div class="row">
+        <div class="main-slider">
+          <div class="slide-text">
+            <h1>Introduce your grandparents to us!!</h1>
+            <p>
+              In order for effective and accurate safety recommendation let us know about your grandparents.
+            </p>
+
+          </div>
+          <img src="static/images/Photos/kids/Artboard 5.png" class="slider-hill" alt="slider image" height="350px"
+            width="350px">
+          <img src="static/images/home/slider/birds1.png" class="slider-birds1" alt="slider image">
+          <!-- <img src="static/images/home/slider/birds2.png" class="slider-birds2" alt="slider image"> -->
+
+        </div>
+      </div>
+    </div>
+    <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+  </section>
+  <!--/#home-slider-->
+
+  <br>
+  <br>
+
+  <section "portfolio-information" class="padding-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+            <h1 class="title">Please introduce your grandparents to us.</h1>
+            <p> In order to give accurate recommendation using our super intelligent system ,please fill details related
+              to your grandparents below.
+            </p>
+            <p><img src="static/images/Photos/elder/Artboard 1.png" class="img-responsive" alt="detective image"
+                width="20%"></p>
+          </div>
+          <section id="action" class="responsive">
+            <div class="vertical-center" >
+
+              <div class="container">
+                <div class="row">
+                  <div class="action take-tour">
+                    <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                      <h1 class="title" align="center">Take a moment to fill the questionnaires below</h1>
+                      <p align="center"> You can go to select question by clicking buttons on the left side of the questions menu.</p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- <h2 class="title" align="center"> Please fill out the questionnaire below</h2> -->
+          <br>
+          <br>
+          <br>
+          <div id="healthriskdiv">
+
+          <form method="POST" onsubmit="return validateForm()">
+            {{ form.hidden_tag() }}
+            <div class="container-form">
+              <div class="leftbox">
+                <nav>
+                  <a id="profile" class="active"><i class="fa fa-male" title="Enter the age"></i></a>
+                  <a id="payment"><i class="fa fa-venus-mars" title="Enter the gender of your grandparent"></i></a>
+                  <a id="subscription"><i class="fa fa-tree" title="Enter height of your grandparent"></i></a>
+                  <a id="weight"><i class="fa fa-tachometer" title="Enter your grandparents weight"></i></a>
+                  <a id="privacy"><i class="fa fa-heart" title="Walking habbits"></i></a>
+                  <a id="settings"><i class="fa fa-child" title="Total Uncle/Anuts"></i></a>
+                  <a id="extra"><i class="fa fa-yelp" title="Submit"></i></a>
+                </nav>
+              </div>
+              <div class="rightbox">
+                <div class="profile">
+                  <h3 class="title" align="center">{{ form.gender.label}}</h3>
+                  <div align="center">
+                    {% for subfield in form.gender %}
+                    <tr style="text-align:center">
+                      <td style="text-align:center">{{ subfield }}</td>
+                      <td style="text-align:center">{{ subfield.label }}</td>
+                      &emsp;&emsp;
+                    </tr>
+                    {% endfor %}
+                  </div>
+                  {% for error in form.gender.errors %}
+                  <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                    <h4 class="title" align="center"> {% endfor %}
+                      <img src="static/images/Photos/elder/Artboard 7.png" class="img-responsive" alt="detective image">
+                </div>
+
+                <div class="payment noshow">
+                  <div id="gender_male">
+                      <h3 class="title" align="center" style="font-weight:bold">Please enter your grandfather's age.</h3>
+                  </div>
+                  <div id="gender_female">
+                      <h3 class="title" align="center" style="font-weight:bold">Please enter your grandmother's age.</h3>
+                  </div>
+                  <!-- <h3 class="title" align="center">{{ form.age.label }}</h3> -->
+                  <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                      <h4 class="title" align="center">{{form.age(class = "form-control", placeholder="Age in years")}}</h4>
+                    </div>
+
+                  </div>
+
+                  {% for error in form.age.errors %}
+                  <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                  </h3> {% endfor %}
+                      <div id = "gender_female_pic">
+                      <img src="static/images/Photos/elder/Artboard 6.png" class="img-responsive" alt="detective image">
+                      </div>
+                      <div id = "gender_male_pic">
+                      <img src="static/images/Photos/elder/Artboard 3.png" class="img-responsive" alt="detective image">
+                      </div>
+
+                </div>
+
+                <div class="subscription noshow">
+                  <div id="male_height">
+                      <h3 class="title" align="center" style="font-weight:bold">How tall is your grandfather?</h3>
+                  </div>
+                  <div id="female_height">
+                      <h3 class="title" align="center" style="font-weight:bold">How tall is your grandmother?</h3>
+                  </div>
+                  <!-- <h3 class="title" align="center">{{ form.height_unit.label }}</h3> -->
+                  <h4 class="title" align="center">{{form.height_unit(class="btn btn-success dropdown-toggle")}}</h4>
+                  {% for error in form.height_unit.errors %}
+                  <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                  </h3> {% endfor %}
+                      <br>
+                      <div id="feets_height">
+                        <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                      <h3 class="title" align="center">{{ form.height_feet.label }}</h3>
+                      <h4 class="title" align="center">{{form.height_feet(class = "form-control", placeholder="Enter feet")}}</h4>
+                    </div>
+
+                  </div>
+
+                        {% for error in form.height_feet.errors %}
+                        <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                        </h3> {% endfor %}
+                            <div class="row">
+                        <div class="col-sm-4 col-sm-offset-4">
+                          <h3 class="title" align="center">{{ form.height_inches.label }}</h3>
+                          <h4 class="title" align="center">{{form.height_inches(class = "form-control", placeholder="Enter inches")}}</h4>
+                        </div>
+                      </div>
+                        {% for error in form.height_inches.errors %}
+                        <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                        </h3> {% endfor %}
+                      </div>
+                      <div id="centimeters_height">
+                        <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                      <h3 class="title" align="center">{{ form.height_centimeters.label }}</h3>
+                      <h4 class="title" align="center">{{form.height_centimeters(class = "form-control", placeholder="Enter height in centimeters")}}</h4>
+                    </div>
+                  </div>
+
+
+                        {% for error in form.height_centimeters.errors %}
+                        <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                        </h3> {% endfor %}
+                      </div>
+                      <!-- <img src="static/images/height.png" class="img-responsive" alt="detective image"> -->
+                </div>
+
+                <div class="weight noshow">
+
+                  <div id="male_weight">
+                      <h3 class="title" align="center" style="font-weight:bold">How much does your grandfather weigh?</h3>
+                  </div>
+                  <div id="female_weight">
+                      <h3 class="title" align="center" style="font-weight:bold">How much does your grandmother weigh?</h3>
+                  </div>
+                  <!-- <h3 class="title" align="center">{{ form.height_unit.label }}</h3> -->
+                  <h4 class="title" align="center">{{form.weight_unit(class="btn btn-success dropdown-toggle")}}</h4>
+                  {% for error in form.weight_unit.errors %}
+                  <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                  </h3> {% endfor %}
+                      <br>
+                      <div id="pounds_weight">
+                        <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                      <h3 class="title" align="center">{{ form.weight_pounds.label }}</h3>
+                      <h4 class="title" align="center">{{form.weight_pounds(class = "form-control", placeholder="eg 120")}}</h4>
+                    </div>
+
+                  </div>
+
+                        {% for error in form.weight_pounds.errors %}
+                        <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                        </h3> {% endfor %}
+                      </div>
+                      <div id="kilograms_weight">
+                        <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                      <h3 class="title" align="center">{{ form.weight_kilograms.label }}</h3>
+                      <h4 class="title" align="center">{{form.weight_kilograms(class = "form-control", placeholder="eg. 80")}}</h4>
+                    </div>
+                  </div>
+
+
+                        {% for error in form.weight_kilograms.errors %}
+                        <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                        </h3> {% endfor %}
+                      </div>
+                      <img src="static/images/weight.png" class="img-responsive" alt="detective image">
+
+                </div>
+
+                <div class="privacy noshow">
+                  <div id="male_walking">
+                      <h3 class="title" align="center" style="font-weight:bold">Whats the best way that describe your grandfather's walking habits?</h3>
+                  </div>
+                  <div id="female_walking">
+                      <h3 class="title" align="center" style="font-weight:bold">Whats the best way that describe your grandmother's walking habits?</h3>
+                  </div>
+                  <!-- <h3 class="title" align="center">{{ form.distance.label}}</h3> -->
+                  <h4 class="title" align="center">{{form.distance(class="btn btn-success dropdown-toggle")}}</h4> {% for error in form.distance.errors %}
+                  <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                    <h4 class="title" align="center"> {% endfor %}
+                      <div id="male_walking_image">
+                      <img src="static/images/Photos/elder/Artboard 5.png" class="img-responsive" alt="detective image">
+                      </div>
+                      <div id="female_walking_image">
+                      <img src="static/images/Photos/elder/Artboard 8.png" class="img-responsive" alt="detective image">
+                      </div>
+                </div>
+                <div class="settings noshow">
+                  <div id="male_children">
+                      <h3 class="title" align="center" style="font-weight:bold">When your grandfather was young, how many babies did he have?</h3>
+                  </div>
+                  <div id="female_children">
+                      <h3 class="title" align="center" style="font-weight:bold">When your grandmother was young, how many babies did she have?</h3>
+                  </div>
+                  <!-- <h3 class="title" align="center">{{ form.children.label }}</h3> -->
+                  <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <h4 class="title" align="center">{{form.children(class = "form-control", placeholder="eg. 1,2,3")}}</h4>
+                    </div>
+
+                  </div>
+
+
+                  {% for error in form.children.errors %}
+                  <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                  </h3> {% endfor %}
+                      <img src="static/images/family.png" class="img-responsive" alt="detective image">
+                </div>
+                <div class="extra noshow">
+                  <div id="male_smoke">
+                      <h3 class="title" align="center" style="font-weight:bold">Does your grandfather currently smoke or has she smoked in the last two years?</h3>
+                  </div>
+                  <div id="female_smoke">
+                      <h3 class="title" align="center" style="font-weight:bold">Does your grandmother currently smoke or has she smoked in the last two years?</h3>
+                  </div>
+                  <!-- <h3 class="title" align="center">{{ form.smoke.label}}</h3> -->
+                  <h4 class="title" align="center">{{form.smoke(class="btn btn-success dropdown-toggle")}}</h4> {% for error in form.smoke.errors %}
+                  <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                  </h3> {% endfor %}
+                      <br>
+
+                      <br>
+                      <div align="center" size="20">
+                        {{ form.submit(class= "btn btn-success",  style="height:50px;width:250px")}}
+                      </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center bottom-separator">
+          <img src="static/images/home/under.png" class="img-responsive inline" alt="">
+        </div>
+
+        <div class="col-sm-12">
+          <div class="copyright-text text-center">
+            <p style="color:red">Care360</p>
+            <p style="color:red">
+              Disclaimer: We provide recommendations on the basis of Australian Government Home Safety Guidelines for
+              Older people.
+            </p>
+            <p style="color:red"> Credits : WebUi Theme by Themeum</p>
+            <p style="color:red"> Credit Images: Freepik.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/#footer-->
+
+  <script type="text/javascript" src="static/js/jquery.js"></script>
+  <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="static/js/lightbox.min.js"></script>
+  <script type="text/javascript" src="static/js/wow.min.js"></script>
+  <script type="text/javascript" src="static/js/main.js"></script>
+  <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket"><i></i></a>
+  <script type='text/javascript' src="static/js/rocket.js"></script>
+  <script>
+    /*active button class onclick*/
+    $('nav a').click(function (e) {
+      e.preventDefault();
+      $('nav a').removeClass('active');
+      $(this).addClass('active');
+      if (this.id === !'payment') {
+        $('.payment').addClass('noshow');
+      }
+      else if (this.id === 'payment') {
+        $('.payment').removeClass('noshow');
+        $('.rightbox').children().not('.payment').addClass('noshow');
+      }
+      else if (this.id === 'profile') {
+        $('.profile').removeClass('noshow');
+        $('.rightbox').children().not('.profile').addClass('noshow');
+      }
+      else if (this.id === 'subscription') {
+        $('.subscription').removeClass('noshow');
+        $('.rightbox').children().not('.subscription').addClass('noshow');
+      }
+      else if (this.id === 'privacy') {
+        $('.privacy').removeClass('noshow');
+        $('.rightbox').children().not('.privacy').addClass('noshow');
+      }
+      else if (this.id === 'settings') {
+        $('.settings').removeClass('noshow');
+        $('.rightbox').children().not('.settings').addClass('noshow');
+      }
+      else if (this.id === 'extra') {
+        $('.extra').removeClass('noshow');
+        $('.rightbox').children().not('.extra').addClass('noshow');
+      }
+      else if (this.id === 'weight') {
+        $('.weight').removeClass('noshow');
+        $('.rightbox').children().not('.weight').addClass('noshow');
+      }
+    });
+  </script>
+</body>
+
+</html>

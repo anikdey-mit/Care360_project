@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Safety Feedback</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lightbox.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/mind_animation.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/text_glow.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/carousel_card.css') }}" rel="stylesheet">
+
+    <!-- [if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+    <![endif] -->
+    <link rel="shortcut icon" href="static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="static/images/ico/apple-touch-icon-57-precomposed.png">
+</head>
+<!--/head-->
+
+<body>
+    <header id="header">
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">
+                        <h1><img src="static/images/logo-care360.png" alt="logo" class="img-fluid" height="75px"
+                                width="75px"> Care 360</h1>
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="active"><a href="{{ url_for('healthrisk')}}">Risk Assessment</a></li>
+                        <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
+                        <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
+                        <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
+                        <li><a href="{{ url_for('login') }}">Admin Login</a></li>
+                        <!-- <li><a href="#">Credits</a></li> -->
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!--/#header-->
+
+    <section id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="main-slider">
+                    <div class="slide-text">
+                        <h1>Put on Your Capes, Time to change the world</h1>
+                        <p>
+                            "There is a superhero in all of us, we just need the courage to put on the cape." -
+                            Superman. Lets be a superman/supergirl for your grandparents.
+                        </p>
+
+                    </div>
+                    <img src="static/images/Photos/kids/superherogirl.png" class="slider-hill" alt="slider image"
+                        height="350px" width="350px">
+                    <img src="static/images/home/slider/birds1.png" class="slider-birds1" alt="slider image">
+                    <img src="static/images/home/slider/birds2.png" class="slider-birds2" alt="slider image">
+
+                </div>
+            </div>
+        </div>
+        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+    </section>
+    <!--/#home-slider-->
+    <br>
+    <section id="clients">
+        <div class="container" style="margin-bottom:150px;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+
+                        <h1 class="title" style="font-weight:bold">We have analyzed your result</h1>
+
+<div class="view">
+  <div class="plane main">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="another-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        {% if session['risk_factor'] == 'High Risk' %}
+                         <h1 class="text-red blink-soft" style="color:red;font-weight:bold">Your {{ session['grandparent_gender'] }} has high risk of getting hurt unintentionally.</h1>
+                         {% endif %}
+                         {% if session['risk_factor'] == 'Medium Risk' %}
+                          <h1 class="text-red blink-soft" style="color:red;font-weight:bold">Your {{ session['grandparent_gender'] }} has medium risk of getting hurt unintentionally.</h1>
+                          {% endif %}
+                          {% if session['risk_factor'] == 'Low Risk' %}
+                           <h1 class="text-red blink-soft" style="color:green;font-weight:bold">Congratulations!! your {{ session['grandparent_gender'] }} has low risk of getting unintentional injuries.</h1>
+                           {% endif %}
+            </div>
+            <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                <h3 style="font-weight:bold"> Please take some time to look at the recommendations below.</h3>
+    </div>
+
+            <div class="cards">
+              <div class="card fill-orange" data-card="0">
+                <div class="card__icon" data-icon="1"></div>
+                <div class="card__detail" style="font-weight:bold"><a href="{{ url_for('healthriskfeedback') }}"> Health Risk Feedback </a></div>
+              </div>
+              <div class="card fill-blue" data-card="1">
+                <div class="card__icon" data-icon="2"></div>
+                <div class="card__detail" style="font-weight:bold"><a href="{{ url_for('physicalconditionfeedback') }}"> Physical Condition Feedback</a></div>
+              </div>
+              <div class="card fill-green" data-card="2">
+                <div class="card__icon" data-icon="3"></div>
+                <div class="card__detail" style="font-weight:bold"><a href="{{ url_for('housesafetyfeedback') }}"> House Safety Feedback</a></div>
+              </div>
+            </div>
+
+
+
+            </div>
+            </div>
+            </div>
+
+    </section>
+
+    <br><br><br><br><br>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center bottom-separator">
+                    <img src="static/images/home/under.png" class="img-responsive inline" alt="">
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>Care360</p>
+                        <p>
+                            Disclaimer: We provide recommendations on the basis of Australian Government Home
+                            Safety,Diet and Physical Activity Guidelines for Older people.
+                        </p>
+                        <p> Credits : WebUi Theme by Themeum</p>
+                        <p> Credits Images : Freepik.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="static/js/wow.min.js"></script>
+    <script type="text/javascript" src="static/js/main.js"></script>
+    <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket" ><i></i></a>
+    <script type='text/javascript' src="static/js/rocket.js"></script>
+    <script type='text/javascript' src="static/js/text_animation.js"></script>
+    <script type='text/javascript' src="static/js/carousal_javascript.js"></script>
+    <script type="text/javascript" src="static/js/mind.js"></script>
+</body>
+
+</html>

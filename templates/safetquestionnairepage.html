@@ -15,14 +15,36 @@
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet">
+    <script type="text/javascript">
+        $(function () {
+            $("#handrails_block").hide();
+        })
+
+
+        function myFunction() {
+            let box_value = document.getElementById("stairs_present").value;
+            //console.log(box_value);
+            //console.log($("#stairs_handrails"));
+            if (box_value === "No") {
+                $("#handrails_block").hide();
+                // document.getElementById("stairs_handrails").style.visibility = "hidden"
+            } else {
+                $("#handrails_block").show();
+                // document.getElementById("stairs_handrails").style.visibility = "none"
+            }
+        }
+    </script>
 
     <!-- [if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
     <![endif] -->
     <link rel="shortcut icon" href="static/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="static/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="static/images/ico/apple-touch-icon-57-precomposed.png">
 </head>
@@ -34,8 +56,8 @@
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{{ url_for('index') }}">
-                        <h1><img src="static/images/logo-care360.png" alt="logo" class="img-fluid"height="75px"
-                            width="75px"> Care 360</h1>
+                        <h1><img src="static/images/logo-care360.png" alt="logo" class="img-fluid" height="75px"
+                                width="75px"> Care 360</h1>
                     </a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -50,8 +72,8 @@
                         <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
                         <li class="dropdown"><a href="#">Home Safety<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
-                                <li><a href="{{ url_for('safety_questionnaire')}}">Home Safety Questionnaire</a></li>
-                                <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li>
+                                <li><a href="{{ url_for('healthrisk')}}">Safety Assesment</a></li>
+                                <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
                                 <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
 
                             </ul>
@@ -73,11 +95,13 @@
                     <div class="slide-text">
                         <h1>Time to be Assessor</h1>
                         <p>
-                            Assess the house environment of your grandparents and change their living environment for effective life style.
+                            Assess the house environment of your grandparents and change their living environment for
+                            effective life style.
                         </p>
 
                     </div>
-                    <img src="static/images/Photos/kids/Artboard 7.png" class="slider-hill" alt="slider image" height="350px" width="350px">
+                    <img src="static/images/Photos/kids/Artboard 7.png" class="slider-hill" alt="slider image"
+                        height="350px" width="350px">
                     <img src="static/images/home/slider/birds1.png" class="slider-birds1" alt="slider image">
                     <!-- <img src="static/images/home/slider/birds2.png" class="slider-birds2" alt="slider image"> -->
 
@@ -91,7 +115,7 @@
     <br>
     <br>
 
-    <section "portfolio-information" class="padding-top">
+    <section id="safety_questions_section" class="padding-top">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -99,14 +123,16 @@
                         <h1 class="title">House Safety Assesment</h1>
                         <p> Complete this questionnaire at your grandparents house.
                         </p>
-                        <p><img src="static/images/detective.jpg" class="img-responsive" alt="detective image" width="20%"></p>
+                        <p><img src="static/images/detective.jpg" class="img-responsive" alt="detective image"
+                                width="20%"></p>
                     </div>
                     <section id="action" class="responsive">
                         <div class="vertical-center">
                             <div class="container">
                                 <div class="row">
                                     <div class="action take-tour">
-                                        <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                                        <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms"
+                                            data-wow-delay="300ms">
                                             <h1 class="title" align="center">Please Fill the questionnaire below</h1>
                                         </div>
 
@@ -120,25 +146,24 @@
                     <br>
                     <br>
 
-                    <form method="post" class="form-group">
+                    <form method="post" class="form-inline">
                         <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
                             {{ form.hidden_tag() }}
-                            <p><img src="static/images/Photos/kids/Artboard 16.png" class="img-responsive" alt="detective image" width="20%"></p>
+                            <p><img src="static/images/Photos/kids/Artboard 16.png" class="img-responsive"
+                                    alt="detective image" width="20%"></p>
                             {{ form.kid_name.label}}
 
                             <br>
                             <div class="row">
 
-                                {{form.kid_name(class = "", placeholder="Enter Your Name ")}}
+                                {{form.kid_name(class = " ", placeholder="Enter Your Name ")}}
                                 <br> {% for error in form.kid_name.errors %}
                                 <span style="color: red;">[{{ error }}]</span> {% endfor %}
                             </div>
-                            <br>
-
-                            <br>
                             <br> {{ form.unsteady_standing.label}}
                             <br>
-                            <p><img src="static/images/old_people.png" class="img-responsive" alt="detective image" width="20%"></p>
+                            <p><img src="static/images/old_people.png" class="img-responsive" alt="detective image"
+                                    width="20%"></p>
                             <br> {% for subfield in form.unsteady_standing %}
                             <tr>
                                 <td>{{ subfield }}</td>
@@ -156,7 +181,8 @@
                             <br>
                             <br> {{ form.kitchen_reach.label}}
                             <br>
-                            <p><img src="static/images/kitchen.png" class="img-responsive" alt="detective image" width="20%"></p>
+                            <p><img src="static/images/kitchen.png" class="img-responsive" alt="detective image"
+                                    width="20%"></p>
                             <br> {% for subfield in form.kitchen_reach %}
                             <tr>
                                 <td>{{ subfield }}</td>
@@ -181,19 +207,29 @@
                             <br> {{ form.electrical_cords.label}}
                             <br>{{form.electrical_cords}} {% for error in form.electrical_cords.errors %}
                             <span style="color: red;">[{{ error }}]</span> {% endfor %}
+
                             <br>
-                            <br> {{ form.stairs_handrails.label}}
-                            <br>
-                            <p><img src="static/images/stairs.png" class="img-responsive" alt="detective image" width="20%"></p>
-                            <br> {% for subfield in form.stairs_handrails %}
-                            <tr>
-                                <td>{{ subfield }}</td>
-                                <td>{{ subfield.label }}</td>
-                                &emsp;&emsp;
-                            </tr>
-                            {% endfor %}
-                            <br> {% for error in form.stairs_handrails.errors %}
+                            <br> {{ form.stairs_present.label}}
+                            <br>{{form.stairs_present}} {% for error in form.stairs_present.errors %}
                             <span style="color: red;">[{{ error }}]</span> {% endfor %}
+
+                            <br>
+                            <div id="handrails_block">
+                                <br> {{ form.stairs_handrails.label}}
+                                <br>
+                                <p><img src="static/images/stairs.png" class="img-responsive" alt="detective image"
+                                        width="20%"></p>
+                                <br> {% for subfield in form.stairs_handrails %}
+                                <tr>
+                                    <td>{{ subfield }}</td>
+                                    <td>{{ subfield.label }}</td>
+                                    &emsp;&emsp;
+                                </tr>
+                                {% endfor %}
+                                <br> {% for error in form.stairs_handrails.errors %}
+                                <span style="color: red;">[{{ error }}]</span> {% endfor %}
+                            </div>
+
                             <br>
                             <br> {{ form.path_checked.label}}
                             <br> {% for subfield in form.path_checked %}
@@ -218,7 +254,8 @@
                             <span style="color: red;">[{{ error }}]</span> {% endfor %}
                             <br> {{ form.walk_difficulty.label}}
                             <br>
-                            <p><img src="static/images/old_walking.png" class="img-responsive" alt="detective image" width="20%"></p>
+                            <p><img src="static/images/old_walking.png" class="img-responsive" alt="detective image"
+                                    width="20%"></p>
                             <br> {% for subfield in form.walk_difficulty %}
                             <tr>
                                 <td>{{ subfield }}</td>
@@ -231,7 +268,8 @@
                             <br>
                             <br> {{ form.grab_bars.label}}
                             <br>
-                            <p><img src="static/images/grab_bars.png" class="img-responsive" alt="detective image" width="20%"></p>
+                            <p><img src="static/images/grab_bars.png" class="img-responsive" alt="detective image"
+                                    width="20%"></p>
                             <br> {% for subfield in form.grab_bars %}
                             <tr>
                                 <td>{{ subfield }}</td>
@@ -243,7 +281,8 @@
                             <span style="color: red;">[{{ error }}]</span> {% endfor %}
                             <br> {{ form.difficulty_chair.label}}
                             <br>
-                            <p><img src="static/images/old_chair.png" class="img-responsive" alt="detective image" width="20%"></p>
+                            <p><img src="static/images/old_chair.png" class="img-responsive" alt="detective image"
+                                    width="20%"></p>
                             <br> {% for subfield in form.difficulty_chair %}
                             <tr>
                                 <td>{{ subfield }}</td>
@@ -265,7 +304,8 @@
                             <span style="color: red;">[{{ error }}]</span> {% endfor %}
                             <br> {{ form.smoke_detector.label}}
                             <br>
-                            <p><img src="static/images/smoke_detector.png" class="img-responsive" alt="detective image" width="20%"></p>
+                            <p><img src="static/images/smoke_detector.png" class="img-responsive" alt="detective image"
+                                    width="20%"></p>
                             <br> {% for subfield in form.smoke_detector %}
                             <tr>
                                 <td>{{ subfield }}</td>
@@ -278,7 +318,8 @@
                             <br>
                             <br> {{ form.fire_extinguisher.label}}
                             <br>
-                            <p><img src="static/images/fire_extinguisher.png" class="img-responsive" alt="detective image" width="20%"></p>
+                            <p><img src="static/images/fire_extinguisher.png" class="img-responsive"
+                                    alt="detective image" width="20%"></p>
                             <br> {% for subfield in form.fire_extinguisher %}
                             <tr>
                                 <td>{{ subfield }}</td>
@@ -318,7 +359,8 @@
                     <div class="copyright-text text-center">
                         <p>Care360</p>
                         <p>
-                            Disclaimer: We provide recommendations on the basis of Australian Government Home Safety,Diet and Physical Activity Guidelines for Older people.
+                            Disclaimer: We provide recommendations on the basis of Australian Government Home
+                            Safety,Diet and Physical Activity Guidelines for Older people.
                         </p>
                         <p> Credits : WebUi Theme by Themeum</p>
                         <p> Credit Images: Freepik.com</p>
@@ -334,6 +376,8 @@
     <script type="text/javascript" src="static/js/lightbox.min.js"></script>
     <script type="text/javascript" src="static/js/wow.min.js"></script>
     <script type="text/javascript" src="static/js/main.js"></script>
+    <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket"><i></i></a>
+    <script type='text/javascript' src="static/js/rocket.js"></script>
 </body>
 
 </html>

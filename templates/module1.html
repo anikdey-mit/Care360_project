@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Physical Condition Assessment</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lightbox.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/flipcard.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/module1.css') }}" rel="stylesheet">
+    <script type="text/javascript">
+        $(function () {
+            $("#handrails_block").hide();
+        })
+
+
+        function myFunction() {
+            let box_value = document.getElementById("stairs_present").value;
+            //console.log(box_value);
+            //console.log($("#stairs_handrails"));
+            if (box_value === "No") {
+                $("#handrails_block").hide();
+                // document.getElementById("stairs_handrails").style.visibility = "hidden"
+            } else {
+                $("#handrails_block").show();
+                // document.getElementById("stairs_handrails").style.visibility = "none"
+            }
+        }
+    </script>
+
+    <!-- [if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+    <![endif] -->
+    <link rel="shortcut icon" href="static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="static/images/ico/apple-touch-icon-57-precomposed.png">
+</head>
+<!--/head-->
+
+<body>
+    <header id="header">
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">
+                        <h1><img src="static/images/logo-care360.png" alt="logo" class="img-fluid" height="75px"
+                                width="75px"> Care 360</h1>
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="active"><a href="{{ url_for('healthrisk')}}">Risk Assessment</a></li>
+                        <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
+                        <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
+                        <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
+                        <li><a href="{{ url_for('login') }}">Admin Login</a></li>
+                        <!-- <li><a href="#">Credits</a></li> -->
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!--/#header-->
+
+    <section id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="main-slider">
+                    <div class="slide-text">
+                        <h1>Time to Observe Your Grandparents</h1>
+                        <p>
+                            Your grandparents have looked after you from your childhood. Now it's your turn to pay back.
+                        </p>
+
+                    </div>
+                    <img src="static/images/Photos/kids/Artboard 2.png" class="slider-hill" alt="slider image"
+                        height="350px" width="350px">
+                    <img src="static/images/home/slider/birds1.png" class="slider-birds1" alt="slider image">
+                    <!-- <img src="static/images/home/slider/birds2.png" class="slider-birds2" alt="slider image"> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+    </section>
+    <!--/#home-slider-->
+
+    <br>
+    <br>
+
+    <section id="safety_questions_section" class="padding-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h1 class="title">Safety Assessment</h1>
+                        <h3> Complete these questionnaires below after observing your grandparents.
+                        </h3>
+                        <p><img src="static/images/oldyoung.png" class="img-responsive" alt="detective image"
+                                width="20%"></p>
+                    </div>
+                    <section id="action" class="responsive">
+                        <div class="vertical-center">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="action take-tour">
+                                        <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms"
+                                            data-wow-delay="300ms">
+                                            <h1 class="title" align="center">Please Fill the questionnaire below</h1>
+                                            <p align="center"> Just couple of more questions to fill.</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- <h2 class="title" align="center"> Please fill out the questionnaire below</h2> -->
+                    <br>
+                    <br>
+                    <br>
+
+                    <form method="POST">
+                        {{ form.hidden_tag() }}
+                        <div class="container-form">
+                            <div class="leftbox">
+                                <nav>
+                                    <a id="profile" class="active"><i class="fa fa-male" title="Enter your name"></i></a>
+                                    <a id="payment"><i class="fa fa-venus-mars" title="Describe nature of standing"></i></a>
+                                    <a id="subscription"><i class="fa fa-scissors" title="Kitchen things reach"></i></a>
+                                    <a id="weight"><i class="fa fa-tachometer" title="Walking difficulty"></i></a>
+                                    <a id="privacy"><i class="fa fa-wheelchair" title="Difficulty getting out of chair or couch"></i></a>
+                                    <a id="settings"><i class="fa fa-users" title="Presence of stairs"></i></a>
+                                    <a id="extra"><i class="fa fa-warning (alias)"  title="Emergency contact details"></i></a>
+                                </nav>
+                            </div>
+
+                            <div class="rightbox">
+                                <div class="profile">
+                                  <div class="row">
+                              <div class="col-sm-4 col-sm-offset-4">
+                                <h3 class="title" align="center">{{ form.kid_name.label}}</h3>
+                                <h4 class="title" align="center">
+                                    {{form.kid_name(class = "form-control", placeholder="Enter Your Name ")}}</h4>
+                              </div>
+                            </div>
+
+                                    {% for error in form.kid_name.errors %}
+                                    <h3 class="title" align="center"><span
+                                            style="color: red;font-size:14px;">[{{ error }}]</span>
+                                        <h4 class="title" align="center"> {% endfor %}
+                                            <img src="static/images/Photos/kids/Artboard 16.png" class="img-responsive"
+                                                alt="detective image" width="20%">
+                                </div>
+
+                                <div class="payment noshow">
+                                  {% if session['grandparent_gender'] == "grandmother" %}
+                                  <h3 class="title" align="center" style="font-weight:bold">What is the best statement that describes your grandmother while she is standing?</h3>
+                                  {% endif %}
+                                  {% if session['grandparent_gender'] == "grandfather" %}
+                                  <h3 class="title" align="center" style="font-weight:bold">What is the best statement that describes your grandfather while he is standing?</h3>
+                                  {% endif %}
+                                  <h4 class="title" align="center">{{form.unsteady_standing(class="btn btn-success dropdown-toggle")}}</h4>
+                                  {% for error in form.unsteady_standing.errors %}
+                                  <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                                  </h3> {% endfor %}
+                                  {% if session['grandparent_gender'] == "grandmother" %}
+                                  <img src="static/images/Photos/elder/Artboard 10.png" class="img-responsive"
+                                                alt="detective image" width="20%">
+                                  {% endif %}
+                                  {% if session['grandparent_gender'] == "grandfather" %}
+                                  <img src="static/images/Photos/elder/Artboard 4.png" class="img-responsive"
+                                                alt="detective image" width="20%">
+                                  {% endif %}
+                                </div>
+
+                                <div class="subscription noshow">
+                                  {% if session['grandparent_gender'] == "grandmother" %}
+                                  <h3 class="title" align="center" style="font-weight:bold">Can your grandmother reach things easily in the kitchen?</h3>
+                                  {% endif %}
+                                  {% if session['grandparent_gender'] == "grandfather" %}
+                                  <h3 class="title" align="center" style="font-weight:bold">Can your grandfather reach things easily in the kitchen?</h3>
+                                  {% endif %}
+                                    <!-- <h3 class="title" align="center">{{ form.kitchen_reach.label}}</h3> -->
+                                    <div align="center">
+                                        {% for subfield in form.kitchen_reach %}
+                                        <tr style="text-align:center">
+                                            <td style="text-align:center">{{ subfield }}</td>
+                                            <td style="text-align:center">{{ subfield.label }}</td>
+                                            &emsp;&emsp;
+                                        </tr>
+                                        {% endfor %}
+                                    </div>
+                                    {% for error in form.kitchen_reach.errors %}
+                                    <h3 class="title" align="center"><span
+                                            style="color: red;font-size:14px;">[{{ error }}]</span>
+                                        <h4 class="title" align="center"> {% endfor %}<br>
+                                            <img src="static/images/kitchen1.png" class="img-responsive"
+                                                alt="detective image">
+                                </div>
+
+                                <div class="weight noshow">
+                                  {% if session['grandparent_gender'] == "grandmother" %}
+                                  <h3 class="title" align="center" style="font-weight:bold">How confident is your grandmother while she is walking?</h3>
+                                  {% endif %}
+                                  {% if session['grandparent_gender'] == "grandfather" %}
+                                  <h3 class="title" align="center" style="font-weight:bold">How confident is your grandfather while he is walking?</h3>
+                                  {% endif %}
+                                  <h4 class="title" align="center">{{form.walk_difficulty(class="btn btn-success dropdown-toggle")}}</h4>
+                                  {% for error in form.walk_difficulty.errors %}
+                                  <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                                  </h3> {% endfor %}
+                                            <img src="static/images/walk.png" class="img-responsive"
+                                                alt="detective image" width="20%">
+                                </div>
+
+                                <div class="privacy noshow">
+                                  {% if session['grandparent_gender'] == "grandmother" %}
+                                  <h3 class="title" align="center" style="font-weight:bold">How easy is it for your grandmother to get out of chair or couch?</h3>
+                                  {% endif %}
+                                  {% if session['grandparent_gender'] == "grandfather" %}
+                                  <h3 class="title" align="center" style="font-weight:bold">How easy is it for your grandfather to get out of chair or couch?</h3>
+                                  {% endif %}
+                                  <h4 class="title" align="center">{{form.difficulty_chair(class="btn btn-success dropdown-toggle")}}</h4>
+                                  {% for error in form.difficulty_chair.errors %}
+                                  <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                                  </h3> {% endfor %}
+                                            <img src="static/images/old_chair.png" class="img-responsive"
+                                                alt="detective image" width="20%">
+                                </div>
+
+
+
+                                <div class="settings noshow">
+                                  {% if session['grandparent_gender'] == "grandmother" %}
+                                  <h3 class="title" align="center" style="font-weight:bold">Are there stairs at your grandmother's house?</h3>
+                                  {% endif %}
+                                  {% if session['grandparent_gender'] == "grandfather" %}
+                                  <h3 class="title" align="center" style="font-weight:bold">Are there stairs at your grandfather's house?</h3>
+                                  {% endif %}
+                                    <!-- <h3 class="title" align="center">{{ form.stairs_present.label}}</h3> -->
+                                    <div align="center">
+                                        {{form.stairs_present(class="btn btn-success dropdown-toggle")}}
+                                    </div>
+                                    {% for error in form.stairs_present.errors %}
+                                    <h3 class="title" align="center"><span
+                                            style="color: red;font-size:14px;">[{{ error }}]</span>
+                                        </h3> {% endfor %}
+
+
+                                            <div id="handrails_block">
+                                              <h3 class="title" align="center" style="font-weight:bold">Many elderly people get injured going up or down stairs if there are no handrails for them to hold on to. </h3>
+                                                <h3 class="title" align="center">{{ form.stairs_handrails.label}}</h3>
+                                                <div align="center"> {% for subfield in form.stairs_handrails %}
+                                                    <tr style="text-align:center">
+                                                        <td style="text-align:center">{{ subfield }}</td>
+                                                        <td style="text-align:center">{{ subfield.label }}</td>
+                                                        &emsp;&emsp;
+                                                    </tr>
+                                                    {% endfor %}
+                                                    <br> {% for error in form.stairs_handrails.errors %}
+                                                    <span style="color: red;">[{{ error }}]</span> {% endfor %}
+                                                    <p><img src="static/images/stairs.png" class="img-responsive"
+                                                            alt="stairs image" style="width:250px;"></p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                            <div class="extra noshow">
+                                              {% if session['grandparent_gender'] == "grandmother" %}
+                                              <h3 class="title" align="center" style="font-weight:bold">Ask your grandmother where she keeps her emergency contact details. Which of these is closest to what she said?</h3>
+                                              {% endif %}
+                                              {% if session['grandparent_gender'] == "grandfather" %}
+                                              <h3 class="title" align="center" style="font-weight:bold">Ask your grandfather where he keeps his emergency contact details. Which of these is closest to what he said?</h3>
+                                              {% endif %}
+                                              <h4 class="title" align="center">{{form.emergency_contact(class="btn btn-success dropdown-toggle")}}</h4>
+                                              {% for error in form.walk_difficulty.errors %}
+                                              <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
+                                              </h3> {% endfor %}
+                                                        <br>
+                                                        <br>
+                                                        <div align="center" size="20">
+                                                            {{ form.submit(class= "btn btn-success",  style="height:50px;width:250px")}}
+                                                        </div>
+                                            </div>
+
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center bottom-separator">
+                    <img src="static/images/home/under.png" class="img-responsive inline" alt="">
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p style="color:red">Care360</p>
+                        <p style="color:red">
+                            Disclaimer: We provide recommendations on the basis of Australian Government Home Safety
+                            Guidelines for Older people.
+                        </p>
+                        <p style="color:red"> Credits : WebUi Theme by Themeum</p>
+                        <p style="color:red"> Credit Images: Freepik.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="static/js/wow.min.js"></script>
+    <script type="text/javascript" src="static/js/main.js"></script>
+    <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket"><i></i></a>
+    <script type='text/javascript' src="static/js/rocket.js"></script>
+    <script>
+        /*active button class onclick*/
+        $('nav a').click(function (e) {
+            e.preventDefault();
+            $('nav a').removeClass('active');
+            $(this).addClass('active');
+            if (this.id === !'payment') {
+                $('.payment').addClass('noshow');
+            }
+            else if (this.id === 'payment') {
+                $('.payment').removeClass('noshow');
+                $('.rightbox').children().not('.payment').addClass('noshow');
+            }
+            else if (this.id === 'profile') {
+                $('.profile').removeClass('noshow');
+                $('.rightbox').children().not('.profile').addClass('noshow');
+            }
+            else if (this.id === 'subscription') {
+                $('.subscription').removeClass('noshow');
+                $('.rightbox').children().not('.subscription').addClass('noshow');
+            }
+            else if (this.id === 'privacy') {
+                $('.privacy').removeClass('noshow');
+                $('.rightbox').children().not('.privacy').addClass('noshow');
+            }
+            else if (this.id === 'settings') {
+                $('.settings').removeClass('noshow');
+                $('.rightbox').children().not('.settings').addClass('noshow');
+            }
+            else if (this.id === 'extra') {
+                $('.extra').removeClass('noshow');
+                $('.rightbox').children().not('.extra').addClass('noshow');
+            }
+            else if (this.id === 'weight') {
+                $('.weight').removeClass('noshow');
+                $('.rightbox').children().not('.weight').addClass('noshow');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

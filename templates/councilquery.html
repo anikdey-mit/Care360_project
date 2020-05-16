@@ -9,21 +9,29 @@
     <table class="table">
       <tr>
         <th scope="col"> Council</th>
-        <th scope="col"> State</th>
+        <th scope="col"> Postcode</th>
         <th scope="col"> Natural calamity 1</th>
+        <th scope="col"> Natural calamity 1 Severity</th>
         <th scope="col"> Natural calamity 2</th>
+        <th scope="col"> Natural calamity 2 Severity</th>
         <th scope="col"> Natural calamity 3</th>
+        <th scope="col"> Natural calamity 3 Severity</th>
         <th scope="col"> Natural calamity 4</th>
+        <th scope="col"> Natural calamity 4 Severity</th>
       </tr>
 
         {% for data in councildata %}
         <tr>
         <td> {{ data.council}} </td>
-        <td> {{ data.state }}</td>
+        <td> {{ data.postcode }}</td>
         <td> {{ data.calamity_1 }}</td>
+        <td> {{ data.calamity_1_severity }}</td>
         <td> {{ data.calamity_2 }}</td>
+        <td> {{ data.calamity_2_severity }}</td>
         <td> {{ data.calamity_3 }}</td>
+        <td> {{ data.calamity_3_severity }}</td>
         <td> {{ data.calamity_4 }}</td>
+        <td> {{ data.calamity_4_severity }}</td>
 
         </tr>
         {% endfor %}

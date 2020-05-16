@@ -14,6 +14,7 @@
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet">
 
     <!-- [if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -51,8 +52,8 @@
                         <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
                         <li class="dropdown"><a href="#">Home Safety<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
-                                <li><a href="{{ url_for('safety_questionnaire')}}">Home Safety Questionnaire</a></li>
-                                <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li>
+                                <li><a href="{{ url_for('healthrisk')}}">Safety Assesment</a></li>
+                                <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
                                 <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
                                 <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
 
@@ -113,7 +114,7 @@
                                             <h1 class="title" align="center"><strong> Thank You
                                                     {{ session['kid_name'] }}, here is the recommendations corresponding
                                                     to your
-                                                    response.</strong></h1>
+                                                    response. Risk is {{ session['risk']}}</strong></h1>
                                         </div>
 
                                     </div>
@@ -309,20 +310,6 @@
                                 <br><br>
 
                                 <li>
-                                    <h4>Q12. Do you think the stairs at your grandparent's house are slippery?</h4>
-                                    {% if session['stairs_condition'] == 'Yes' %}
-                                    <h4><strong>You selected YES. Our Recommendation: Cover stairs with rugs so it is not slippery for your grandparents.</strong></h4>
-                                    {% else %}
-                                    <h4><strong>You selected NO. Our Recommendation: Make sure the handrails are
-                                            installed for
-                                            your grandparents to hold.
-                                        </strong>
-                                    </h4>
-                                    {% endif %}
-                                </li>
-                                <br><br>
-
-                                <li>
                                     <h4>Q13. Are smoke detectors installed and working properly in your grandparent's
                                         house?
                                     </h4>
@@ -409,6 +396,8 @@
     <script type="text/javascript" src="static/js/lightbox.min.js"></script>
     <script type="text/javascript" src="static/js/wow.min.js"></script>
     <script type="text/javascript" src="static/js/main.js"></script>
+    <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket" ><i></i></a>
+    <script type='text/javascript' src="static/js/rocket.js"></script>
 </body>
 
 </html>
