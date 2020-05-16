@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin-ext");
+
+* {
+  box-sizing: border-box;
+}
+
+/* h1 {
+  font-size: 1.4em;
+  font-weight: 700;
+  display: inline-block;
+  vertical-align: middle;
+}
+h1:before {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto .7em;
+  content: '';
+  background-size: contain;
+  background-position: center;
+}
+
+p {
+  line-height: 1.9em;
+  font-size: 1em;
+} */
+
+.v-center {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+article {
+  width: 300px;
+  margin: 0 1em;
+  color: white;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  position: relative;
+  text-align: center;
+}
+article .front,
+article .back {
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  overflow: hidden;
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  min-height: 400px;
+}
+article .front {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  background-size: cover;
+  background-position: center;
+  background-color: #222;
+  background-blend-mode: overlay;
+}
+article .front .text {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+article .back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  background: #5dbcd2;
+  position: relative;
+  z-index: 1;
+}
+article .back .text {
+  padding: 0 1.7em;
+  -webkit-transform: translate3d(80%, 0, 0);
+          transform: translate3d(80%, 0, 0);
+}
+article .text {
+  -webkit-transition: opacity 0.4s linear, -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: opacity 0.4s linear, -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1), opacity 0.4s linear;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1), opacity 0.4s linear, -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  opacity: 0;
+}
+article:hover .front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+article:hover .front .text {
+  -webkit-transform: translate3d(-200%, 0, 0);
+          transform: translate3d(-200%, 0, 0);
+  opacity: 0;
+}
+article:hover .back {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+article:hover .back .text {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+article:nth-child(1) .front {
+  background-image: url(/static/images/night.jpg);
+}
+/* article:nth-child(1) .front h1:before {
+  background-image: url(http://demo.devolk.blog/cosmos/galaxy.svg);
+} */
+article:nth-child(2) .front {
+  background-image: url(https://images.pexels.com/photos/35600/road-sun-rays-path.jpg?w=1260&h=750&auto=compress&cs=tinysrgb);
+}
+/* article:nth-child(2) .front h1:before {
+  background-image: url(http://demo.devolk.blog/cosmos/light.svg);
+} */
+article:nth-child(3) .front {
+  background-image: url(https://images.pexels.com/photos/5439/earth-space.jpg?w=1260&h=750&auto=compress&cs=tinysrgb);
+}
+/* article:nth-child(3) .front h1:before {
+  background-image: url(http://demo.devolk.blog/cosmos/saturn.svg);
+} */
