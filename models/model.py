@@ -107,16 +107,24 @@ class CouncilDisasterData(db.Model):
     __tablename__ = 'CouncilDisasterData'
     id = db.Column(db.Integer, primary_key = True)
     council = db.Column(db.Text)
-    state = db.Column(db.Text)
+    postcode = db.Column(db.Text)
     calamity_1 = db.Column(db.Text)
+    calamity_1_severity = db.Column(db.Text)
     calamity_2 = db.Column(db.Text)
+    calamity_2_severity = db.Column(db.Text)
     calamity_3 = db.Column(db.Text)
+    calamity_3_severity = db.Column(db.Text)
     calamity_4 = db.Column(db.Text)
+    calamity_4_severity = db.Column(db.Text)
 
-    def __init__(self,council,state,calamity_1,calamity_2,calamity_3,calamity_4):
+    def __init__(self,council,postcode,calamity_1, calamity_1_severity, calamity_2, calamity_2_severity, calamity_3,calamity_3_severity, calamity_4,calamity_4_severity):
         self.council = council
-        self.state = state
+        self.postcode = postcode
         self.calamity_1 = calamity_1
         self.calamity_2 = calamity_2
         self.calamity_3 = calamity_3
         self.calamity_4 = calamity_4
+        self.calamity_1_severity = calamity_1_severity
+        self.calamity_2_severity = calamity_2_severity
+        self.calamity_3_severity = calamity_3_severity
+        self.calamity_4_severity = calamity_4_severity
