@@ -43,10 +43,11 @@
 }
 
 .container-form .img-responsive{
-  width:300px;
-  position:absolute;
+  width:250px;
+  margin:auto;
+  /* position:absolute;
   left:50%;
-  margin-left:-150px;
+  margin-left:-150px; */
 }
  .rightbox {
 	 /* float: right */
@@ -154,13 +155,23 @@
   }
   .rightbox .img-responsive{
     /* max-height:200px; */
-    width:200px;
-    left:50%;
-    margin-left:-100px;
+    width:auto;
+    max-width: 200px!important;
+    height:auto;
+    max-height:120px!important;
+    /* left:50%;
+    margin-left:-100px; */
+    margin:auto;
   }
   nav a{
     display:inline-block;
     width:10%;
     padding:20px;
+  }
+  .title{
+    margin-top:auto;
+  }
+  .pull-right, .pull-left{
+    float:none!important;
   }
 }

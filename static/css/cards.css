@@ -36,13 +36,15 @@ p {
 }
 
 article {
-  width: 300px;
+  width: 200px;
   margin: 0 1em;
   color: white;
   -webkit-perspective: 1000px;
           perspective: 1000px;
   position: relative;
   text-align: center;
+  height: 300px;
+  border-radius: 15px;
 }
 article .front,
 article .back {
@@ -60,33 +62,41 @@ article .back {
           align-items: center;
   -webkit-box-pack: center;
           justify-content: center;
-  min-height: 400px;
+  min-height: 200px;
+  border-radius: 15px;
 }
 article .front {
   position: absolute;
   z-index: 2;
   width: 100%;
-  height: 100%;
+  height: 50%;
   top: 0;
   left: 0;
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
   background-size: cover;
   background-position: center;
-  background-color: #222;
+  background-color: rgb(175, 168, 168);
   background-blend-mode: overlay;
+  border-radius: 15px;
 }
 article .front .text {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   opacity: 1;
 }
+
+
+
 article .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   background: #5dbcd2;
   position: relative;
   z-index: 1;
+  width: 100%;
+  height: 50%;
+  border-radius: 15px;
 }
 article .back .text {
   padding: 0 1.7em;
@@ -118,22 +128,33 @@ article:hover .back .text {
           transform: translate3d(0, 0, 0);
   opacity: 1;
 }
-
+/*
 article:nth-child(1) .front {
-  background-image: url(/static/images/night.jpg);
+  background-image: url(/static/images/healthrisk.jpg);
 }
 /* article:nth-child(1) .front h1:before {
   background-image: url(http://demo.devolk.blog/cosmos/galaxy.svg);
-} */
+} *//*
 article:nth-child(2) .front {
-  background-image: url(https://images.pexels.com/photos/35600/road-sun-rays-path.jpg?w=1260&h=750&auto=compress&cs=tinysrgb);
+  background-image: url(/static/images/pc.jpg);
 }
 /* article:nth-child(2) .front h1:before {
   background-image: url(http://demo.devolk.blog/cosmos/light.svg);
-} */
+} *//*
 article:nth-child(3) .front {
-  background-image: url(https://images.pexels.com/photos/5439/earth-space.jpg?w=1260&h=750&auto=compress&cs=tinysrgb);
+  background-image: url(/static/images/hs.jpg);
 }
 /* article:nth-child(3) .front h1:before {
   background-image: url(http://demo.devolk.blog/cosmos/saturn.svg);
 } */
+@media (max-width:992px) {
+  .v-center{
+      display:block;
+      width:100%;
+  }
+  .v-center article{
+    height:auto;
+    margin:auto;
+    margin-top:50px;
+  }
+}
