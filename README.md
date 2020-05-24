@@ -4,7 +4,7 @@ A website for children aged 8-12, focusing on preventing injuries of older Austr
 ## Contents of this file
 
 * Introduction
-* REQUIREMENTS
+* Requirements
 * Setup Guidelines
 * Deployment Guidelines
 
