@@ -6,12 +6,12 @@ from wtforms import (StringField,BooleanField,DateTimeField,
                     SubmitField, PasswordField, SelectMultipleField,IntegerField, FloatField)
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 #import the  validators that will be required to build the application
-from wtforms.validators import DataRequired, EqualTo, NumberRange, Optional
+from wtforms.validators import DataRequired, EqualTo, NumberRange, Optional, Length
 from wtforms import ValidationError
 
 class SafetyModule1(FlaskForm):
     #create the forms details
-    kid_name = StringField('Please enter your name.',validators=[DataRequired()])
+    kid_name = StringField('Please enter your name.',validators=[DataRequired(), Length(max=20)], render_kw={'onchange': "name_verification()"})
     unsteady_standing = SelectField('What is the best statement that describes your granparent while they are standing?',
                     choices =[('Yes','Visibly Shaken'),('Yes','Hold to stroller'),('No','No diificulty while standing')],validators=[DataRequired()])
 
@@ -28,7 +28,7 @@ class SafetyModule1(FlaskForm):
                         choices=[('Yes','Not Confident'),('No','Confident')], validators=[DataRequired()])
 
     difficulty_chair = SelectField('How easy is it for your grandparents to get out of chair or couch?',
-                    choices =[('Yes','Very easily'),('Yes','Need help'), ('No','Can not manage easily')],validators=[DataRequired()])
+                    choices =[('Yes','Very easily on their own'),('Yes','Sometimes need help from people'), ('No','Can not manage easily')],validators=[DataRequired()])
 
     emergency_contact =  SelectField('Where do your grandparent keep their emergency contact details?',
                     choices =[('Yes','On mobile phone'),('Yes','In address book'), ('No','They have memorised')],validators=[DataRequired()])
@@ -104,7 +104,7 @@ class HealthRiskForm(FlaskForm):
                     choices =[('0','Grandmother'),('1','Grandfather')],validators=[DataRequired()])
 
     height_unit = SelectField('Select the unit to enter the height.',
-                        choices=[('Feets','Feets'),('Centimeters','Centimeters')], validators=[DataRequired()], render_kw={'onchange': "height_function()"})
+                        choices=[('Feets','Feet'),('Centimeters','Centimeters')], validators=[DataRequired()], render_kw={'onchange': "height_function()"})
 
     height_feet = IntegerField('Enter the feets',validators=[Optional(), NumberRange(min=3, max=8)], render_kw={'onchange': "feet_verification()"})
     height_inches = IntegerField('Enter the inches',validators=[Optional(), NumberRange(min=1, max=12)], render_kw={'onchange': "inches_verification()"})
