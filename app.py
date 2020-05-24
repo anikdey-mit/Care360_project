@@ -53,7 +53,7 @@ login_manager.login_view = 'login'
 
 ########################################################################################################
 #view for the main page
-#@app.route('/')
+# @app.route('/')
 @app.route('/home')
 def index():
     return render_template('home.html')
@@ -78,20 +78,20 @@ def siteentry():
 ########################################################################################################
 ########################################################################################################
 #view for the general home safety page
-#@app.route('/generalsafety')
-#def generalsafety():
-#    return render_template('generalsafetyrecommendation.html',title='General Safety')
+@app.route('/generalsafety')
+def generalsafety():
+    return render_template('generalsafetyrecommendation.html',title='General Safety')
 
 
 ########################################################################################################
-#view for the physical condition questionnaire page
+#view for the safety questionnaire
 @app.route('/physicalcondition',methods=['GET','POST'])
 def module1():
     form = SafetyModule1()
 
     if form.validate_on_submit():
         # get the data in the session object for the client side
-        session['physicalcondition_risk'] = 'No'
+        session['physicalcondition_risk'] = 'No'###########################################################
         session['kid_name'] = form.kid_name.data
         session['unsteady_standing'] = form.unsteady_standing.data
         ##use the bmi in conjuction with the unsteady standing to find risk factor
@@ -118,7 +118,8 @@ def module1():
                 session['risk_value'] = str(int(session['risk_value']) + 2)
 
         ###################################################
-        if form.stairs_present == "Yes":
+
+        if form.stairs_present.data == "Yes":
             session['stairs_present'] = "Yes"
             session['stairs_handrails'] = form.stairs_handrails.data
         else:
@@ -187,14 +188,13 @@ def module1():
     return render_template('module1.html', form=form, title='Physical Condition')
 
 
-###########################################################################################################
-#view for the house safety questionnaire page
+
 @app.route('/housesafety',methods=['GET','POST'])
 def module2():
     form = SafetyModule2()
 
     if form.validate_on_submit() and request.method == 'POST':
-        session['house_risk'] = 'No'
+        session['house_risk'] = 'No'###################################################################
 
         # session['water_presence'] = form.water_presence.data
         print(request.form.getlist('wet_option'))
@@ -205,7 +205,7 @@ def module2():
         ###################################################
         #update the risk for having the water resence
         if session['water_presence'] == "Yes":
-            session['house_risk'] = 'Yes'
+            session['house_risk'] = 'Yes'###################################################################
             if session['bmi'] == 'underweight' or session['bmi'] == "obese":
                 session['risk_value'] = str(int(session['risk_value']) + 2)
 
@@ -217,7 +217,7 @@ def module2():
         ###################################################
         #update risk for having the slip products
         if session['slip_products'] == "Yes":
-            session['house_risk'] = 'Yes'
+            session['house_risk'] = 'Yes'###################################################################
             if session['bmi'] == 'underweight' or session['bmi'] == "obese":
                 session['risk_value'] = str(int(session['risk_value']) + 3)
 
@@ -229,7 +229,7 @@ def module2():
         ###################################################
         #update risk for having the electrical cords
         if session['electrical_cords'] == "Yes":
-            session['house_risk'] = 'Yes'
+            session['house_risk'] = 'Yes'###################################################################
             if session['bmi'] == 'underweight' or session['bmi'] == "obese":
                 session['risk_value'] = str(int(session['risk_value']) + 2)
 
@@ -241,7 +241,7 @@ def module2():
         ###################################################
         #update risks for having the path cracked
         if session['path_checked'] == "Yes":
-            session['house_risk'] = 'Yes'
+            session['house_risk'] = 'Yes'###################################################################
             if session['bmi'] == 'underweight' or session['bmi'] == "obese":
                 session['risk_value'] = str(int(session['risk_value']) + 2)
 
@@ -253,7 +253,7 @@ def module2():
         ###################################################
         #risk for adequate lighting
         if session['adequate_light'] == "No":
-            session['house_risk'] = 'Yes'
+            session['house_risk'] = 'Yes'###################################################################
             if session['bmi'] == 'underweight' or session['bmi'] == "obese":
                 session['risk_value'] = str(int(session['risk_value']) + 2)
 
@@ -265,7 +265,7 @@ def module2():
         ###################################################
         #risks for grab bars
         if session['grab_bars'] == "No":
-            session['house_risk'] = 'Yes'
+            session['house_risk'] = 'Yes'###################################################################
             if session['bmi'] == 'underweight' or session['bmi'] == "obese":
                 session['risk_value'] = str(int(session['risk_value']) + 3)
 
@@ -277,7 +277,7 @@ def module2():
         ###################################################
         #risk of smoking and smoke detectors
         if session['smoke_detector'] == "No":
-            session['house_risk'] = 'Yes'
+            session['house_risk'] = 'Yes'###################################################################
             if session['smoke'] == 'yes':
                 session['risk_value'] = str(int(session['risk_value']) + 3)
 
@@ -289,7 +289,7 @@ def module2():
         ###################################################
         #risks for fire extinguisher and smoke
         if session['fire_extinguisher'] == "No":
-            session['house_risk'] = 'Yes'
+            session['house_risk'] = 'Yes'###################################################################
             if session['smoke'] == 'yes':
                 session['risk_value'] = str(int(session['risk_value']) + 3)
 
@@ -314,9 +314,9 @@ def module2():
 ########################################################################################################
 
 #render template for safety questionnaire feedback
-#@app.route('/safety_questionnaire_feedback')
-#def safety_questionnaire_feedback():
-#    return render_template('safety_questionnaire_feedback.html')
+@app.route('/safety_questionnaire_feedback')
+def safety_questionnaire_feedback():
+    return render_template('safety_questionnaire_feedback.html')
 
 ########################################################################################################
 #page to query the database and check whether entries are pushing or not
@@ -421,8 +421,7 @@ def councilquery():
     return render_template('councilquery.html',councildata= councildata)
 
 ########################################################################################################
-#view for the council select page for natural disasters
-@app.route('/safetybycouncil',methods=['GET','POST'])
+@app.route('/naturaldisasterassist',methods=['GET','POST'])
 def safetybycouncil():
     form = DisasterForm()
     CouncilDisasterData.query.filter(CouncilDisasterData.council == 'ï»¿Melbourne').update({"council":"Melbourne"})
@@ -444,18 +443,17 @@ def safetybycouncil():
     return render_template('safetybycouncil.html',form=form)
 
 
-@app.route('/disasterrecommendation')
+@app.route('/naturaldisasterfeedback')
 def disasterrecommendation():
     return render_template('disasterrecommendation.html')
-
-
 ########################################################################################################
 #view to find the health risks
+
 @app.route('/healthrisk',methods=['GET','POST'])
 def healthrisk():
     form = HealthRiskForm()
     if form.validate_on_submit():
-        session['health_risk'] = "No"
+        session['health_risk'] = "No"##################################################
         #print("validation okkay")
         age = form.age.data
         gender = form.gender.data
@@ -485,17 +483,17 @@ def healthrisk():
 
         if int(session['walking_distance'] ) < 1250:
             session['walking_habbits'] = "bad"
-            session['health_risk'] = "Yes"
+            session['health_risk'] = "Yes"#############################################
         else:
             session['walking_habbits'] = "good"
 
         #store the bmi category in the session variable
         if bmi < 18:
             session['bmi'] = "underweight"
-            session['health_risk'] = "Yes"
+            session['health_risk'] = "Yes"#############################################
         elif bmi > 30:
             session['bmi']  = "obese"
-            session['health_risk'] = "Yes"
+            session['health_risk'] = "Yes"###############################################
         else:
             session['bmi'] = 'normal'
 
@@ -504,7 +502,7 @@ def healthrisk():
         print(smoke)
         if smoke == '1':
             session['smoke_data'] = "yes"
-            session['health_risk'] = "Yes"
+            session['health_risk'] = "Yes"################################################
         else:
             session['smoke_data'] = "no"
         #end of this session for smoke
@@ -532,13 +530,12 @@ def healthrisk():
     else:
         return render_template('healthrisk.html', form = form)
     return render_template('healthrisk.html', form = form)
-
-
 ########################################################################################################
 #view to give health risk recommendation
 @app.route('/healthriskfeedback')
 def healthriskfeedback():
     return render_template('healthriskfeedback.html')
+
 
 ########################################################################################################
 #view to give health condition recommendation
@@ -553,7 +550,6 @@ def housesafetyfeedback():
     return render_template('housesafetyfeedback.html')
 
 ########################################################################################################
-#view page for recommendation menu
 @app.route('/recommendation_menu')
 def recommendation_menu():
     return render_template('recommendation_menu.html')
@@ -566,7 +562,9 @@ def page_not_found(e):
     return redirect(url_for('index'))
 
 
+
 ########################################################################################################
+
 #run the main file
 if __name__ == '__main__':
     app.run(debug=True)
