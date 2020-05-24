@@ -14,7 +14,7 @@
   <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-  <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet">
+  <!-- <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet"> -->
   <link href="{{ url_for('static', filename='css/text_glow.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/owl.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/tickbox.css') }}" rel="stylesheet">
@@ -73,7 +73,7 @@
             <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
             <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
             <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
-            <li><a href="{{ url_for('login') }}">Admin Login</a></li>
+            <!-- <li><a href="{{ url_for('login') }}">Admin Login</a></li> -->
             <!-- <li><a href="#">Credits</a></li> -->
           </ul>
         </div>
@@ -149,7 +149,7 @@
             {% else %}
 
             <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-              <table class="table table-bordered table-curved">
+              <table class="table table-bordered table-curved table-responsive">
                 <thead class="thead-dark">
                   <tr style="background-color:#5dbcd2">
                     <th scope="col" class="text-center">
@@ -502,8 +502,13 @@
           <div class="row">
               <div class="col-sm-12">
                   <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                    {% if session['health_risk'] != "No" %}
   <button name="submit" class="btn btn-success" type="button" value="Save" onclick="window.location.href='{{ url_for( 'healthriskfeedback') }}';">Go to health risk feedback</button>
+  {% endif %}
+  <br><br>
+  {% if session['physicalcondition_risk'] != "No" %}
   <button name="submit" class="btn btn-success" type="button" value="Save" onclick="window.location.href='{{ url_for( 'physicalconditionfeedback') }}';">Go to physical condition feedback</button>
+  {% endif %}
 
                   </div>
               </div>
@@ -538,8 +543,8 @@
   <script type="text/javascript" src="static/js/lightbox.min.js"></script>
   <script type="text/javascript" src="static/js/wow.min.js"></script>
   <script type="text/javascript" src="static/js/main.js"></script>
-  <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket"><i></i></a>
-  <script type='text/javascript' src="static/js/rocket.js"></script>
+  <!-- <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket"><i></i></a>
+  <script type='text/javascript' src="static/js/rocket.js"></script> -->
   <script type='text/javascript' src="static/js/text_animation.js"></script>
 </body>
 

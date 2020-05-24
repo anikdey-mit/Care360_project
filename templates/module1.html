@@ -15,7 +15,7 @@
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-    <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet">
+    <!-- <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet"> -->
     <link href="{{ url_for('static', filename='css/module1.css') }}" rel="stylesheet">
     <script type="text/javascript">
         $(function () {
@@ -27,7 +27,7 @@
             let box_value = document.getElementById("stairs_present").value;
             //console.log(box_value);
             //console.log($("#stairs_handrails"));
-            if (box_value === "No") {
+            if (box_value == "No") {
                 $("#handrails_block").hide();
                 // document.getElementById("stairs_handrails").style.visibility = "hidden"
             } else {
@@ -35,6 +35,18 @@
                 // document.getElementById("stairs_handrails").style.visibility = "none"
             }
         }
+    </script>
+    <script type="text/javascript">
+    function name_verification() {
+      var kidname = document.getElementById("kid_name").value;
+      if (kidname.length > 20) {
+      alert("Name field should be less than 20 characters");
+    }
+    if(!kidname.match(/^[A-Za-z ]+$/))
+    {
+      alert("Please only characters in the name field");
+    }
+    }
     </script>
 
     <!-- [if lt IE 9]>
@@ -75,7 +87,7 @@
                         <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
                         <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
                         <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
-                        <li><a href="{{ url_for('login') }}">Admin Login</a></li>
+                        <!-- <li><a href="{{ url_for('login') }}">Admin Login</a></li> -->
                         <!-- <li><a href="#">Credits</a></li> -->
                     </ul>
                 </div>
@@ -174,6 +186,9 @@
                                         <h4 class="title" align="center"> {% endfor %}
                                             <img src="static/images/Photos/kids/Artboard 16.png" class="img-responsive"
                                                 alt="detective image" width="20%">
+                                                <div class="row" style="margin-top:20px;">
+                                                <div ><button class="btn btn-success center-block" onclick="goToPage('payment')" type="button">Next Question</button></div>
+                                              </div>
                                 </div>
 
                                 <div class="payment noshow">
@@ -190,10 +205,18 @@
                                   {% if session['grandparent_gender'] == "grandmother" %}
                                   <img src="static/images/Photos/elder/Artboard 10.png" class="img-responsive"
                                                 alt="detective image" width="20%">
+                                                <div class="row" style="margin-top:20px;">
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('profile')" type="button">Previous Question</button></div>
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('subscription')" type="button">Next Question</button></div>
+                                                </div>
                                   {% endif %}
                                   {% if session['grandparent_gender'] == "grandfather" %}
                                   <img src="static/images/Photos/elder/Artboard 4.png" class="img-responsive"
                                                 alt="detective image" width="20%">
+                                                <div class="row" style="margin-top:20px;">
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('profile')" type="button">Previous Question</button></div>
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('subscription')" type="button">Next Question</button></div>
+                                                </div>
                                   {% endif %}
                                 </div>
 
@@ -220,6 +243,10 @@
                                         <h4 class="title" align="center"> {% endfor %}<br>
                                             <img src="static/images/kitchen1.png" class="img-responsive"
                                                 alt="detective image">
+                                                <div class="row" style="margin-top:20px;">
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('payment')" type="button">Previous Question</button></div>
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('weight')" type="button">Next Question</button></div>
+                                                </div>
                                 </div>
 
                                 <div class="weight noshow">
@@ -235,6 +262,10 @@
                                   </h3> {% endfor %}
                                             <img src="static/images/walk.png" class="img-responsive"
                                                 alt="detective image" width="20%">
+                                                <div class="row" style="margin-top:20px;">
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('subscription')" type="button">Previous Question</button></div>
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('privacy')" type="button">Next Question</button></div>
+                                                </div>
                                 </div>
 
                                 <div class="privacy noshow">
@@ -250,6 +281,11 @@
                                   </h3> {% endfor %}
                                             <img src="static/images/old_chair.png" class="img-responsive"
                                                 alt="detective image" width="20%">
+                                                <div class="row" style="margin-top:20px;">
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('weight')" type="button">Previous Question</button></div>
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('settings')" type="button">Next Question</button></div>
+                                                </div>
+
                                 </div>
 
 
@@ -283,19 +319,26 @@
                                                     {% endfor %}
                                                     <br> {% for error in form.stairs_handrails.errors %}
                                                     <span style="color: red;">[{{ error }}]</span> {% endfor %}
-                                                    <p><img src="static/images/stairs.png" class="img-responsive"
-                                                            alt="stairs image" style="width:250px;"></p>
+                                                    <!-- <p><img src="static/images/stairs.png" class="img-responsive"
+                                                            alt="stairs image" style="width:250px;"></p> -->
+
                                                 </div>
+                                            </div>
+                                            <div class="row" style="margin-top:20px;">
+                                              <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('privacy')" type="button">Previous Question</button></div>
+                                              <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('extra')" type="button">Next Question</button></div>
                                             </div>
 
                                         </div>
 
                                             <div class="extra noshow">
                                               {% if session['grandparent_gender'] == "grandmother" %}
-                                              <h3 class="title" align="center" style="font-weight:bold">Ask your grandmother where she keeps her emergency contact details. Which of these is closest to what she said?</h3>
+                                              <h3 class="title" align="center" style="font-weight:bold">Ask your grandmother where she keeps her emergency contact details. <br>
+                                                Which of these is closest to what she said?</h3>
                                               {% endif %}
                                               {% if session['grandparent_gender'] == "grandfather" %}
-                                              <h3 class="title" align="center" style="font-weight:bold">Ask your grandfather where he keeps his emergency contact details. Which of these is closest to what he said?</h3>
+                                              <h3 class="title" align="center" style="font-weight:bold">Ask your grandfather where he keeps his emergency contact details. <br>
+                                                Which of these is closest to what he said?</h3>
                                               {% endif %}
                                               <h4 class="title" align="center">{{form.emergency_contact(class="btn btn-success dropdown-toggle")}}</h4>
                                               {% for error in form.walk_difficulty.errors %}
@@ -306,6 +349,11 @@
                                                         <div align="center" size="20">
                                                             {{ form.submit(class= "btn btn-success",  style="height:50px;width:250px")}}
                                                         </div>
+                                                        <br>
+
+                                                        <div class="row" style="margin-top:20px;" align="center">
+                                                        <div><button class="btn btn-success center-block" onclick="goToPage('settings')" type="button">Previous Question</button></div>
+                                                      </div>
                                             </div>
 
                                 </div>
@@ -343,8 +391,8 @@
     <script type="text/javascript" src="static/js/lightbox.min.js"></script>
     <script type="text/javascript" src="static/js/wow.min.js"></script>
     <script type="text/javascript" src="static/js/main.js"></script>
-    <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket"><i></i></a>
-    <script type='text/javascript' src="static/js/rocket.js"></script>
+    <!-- <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket"><i></i></a>
+    <script type='text/javascript' src="static/js/rocket.js"></script> -->
     <script>
         /*active button class onclick*/
         $('nav a').click(function (e) {
@@ -383,6 +431,34 @@
                 $('.rightbox').children().not('.weight').addClass('noshow');
             }
         });
+        function goToPage(nextPage)
+        {
+          $('nav a').removeClass('active');
+          if(nextPage == "profile"){
+            $("#profile").addClass('active');
+          }
+          if(nextPage == "payment"){
+            $("#payment").addClass('active');
+          }
+          if(nextPage == "subscription"){
+            $("#subscription").addClass('active');
+          }
+          if(nextPage == "weight"){
+            $("#weight").addClass('active');
+          }
+          if(nextPage == "privacy"){
+            $("#privacy").addClass('active');
+          }
+          if(nextPage == "settings"){
+            $("#settings").addClass('active');
+          }
+          if(nextPage == "extra"){
+            $("#extra").addClass('active');
+          }
+
+          $("."+nextPage).removeClass('noshow');
+          $(".rightbox").children().not('.'+nextPage).addClass('noshow');
+        }
     </script>
 
 </body>

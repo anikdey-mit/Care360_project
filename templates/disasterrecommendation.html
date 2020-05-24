@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Disaster House Safety Tips</title>
+    <title>Natural Disaster Feedback</title>
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet">
@@ -14,15 +14,17 @@
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-    <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet">
+    <!-- <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet"> -->
 
     <!-- [if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
         <![endif] -->
     <link rel="shortcut icon" href="static/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="static/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="static/images/ico/apple-touch-icon-57-precomposed.png">
 </head>
@@ -34,8 +36,8 @@
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{{ url_for('index') }}">
-                        <h1><img src="static/images/logo-care360.png" alt="logo" class="img-fluid"height="75px"
-                            width="75px"> Care 360</h1>
+                        <h1><img src="static/images/logo-care360.png" alt="logo" class="img-fluid" height="75px"
+                                width="75px"> Care 360</h1>
                     </a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -49,11 +51,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{{ url_for('index') }}">Home</a></li>
                         <li><a href="{{ url_for('healthrisk')}}">Risk Assessment</a></li>
-                        <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
                         <li class="active"><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
-                        <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
-                        <li ><a href="{{ url_for('login') }}">Admin Login</a></li>
-                        <!-- <li><a href="#">Credits</a></li> -->
+                        <!-- <li><a href="{{ url_for('login') }}">Admin Login</a></li> -->
                     </ul>
                 </div>
 
@@ -73,7 +72,8 @@
                         </p>
 
                     </div>
-                    <img src="static/images/Photos/kids/Artboard 6.png" class="slider-hill" alt="slider image" height="350px" width="350px">
+                    <img src="static/images/Photos/kids/Artboard 6.png" class="slider-hill" alt="slider image"
+                        height="350px" width="350px">
                     <img src="static/images/home/slider/birds1.png" class="slider-birds1" alt="slider image">
                     <!-- <img src="static/images/home/slider/birds2.png" class="slider-birds2" alt="slider image"> -->
 
@@ -91,7 +91,8 @@
                     <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
                         {% if session['postcode'] %}
                         <h2 class="title">You selected your grandparents postcode: {{ session['postcode'] }}</h2>
-                        <p><img src="static/images/Photos/kids/Artboard 35.png" class="img-responsive" alt="child image" width="20%"></p>
+                        <p><img src="static/images/Photos/kids/Artboard 35.png" class="img-responsive" alt="child image"
+                                width="20%"></p>
                         <br>
                     </div>
                     <h2 class="title" align="center"> </h2>
@@ -120,7 +121,8 @@
                 <div class="row">
                     <div class="action take-tour">
                         <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-                            <h1 class="title" align="center">Protect Your elders from getting harmed from these disasters.</h1>
+                            <h1 class="title" align="center">Protect Your elders from getting harmed from these
+                                disasters.</h1>
                         </div>
                     </div>
                 </div>
@@ -139,36 +141,75 @@
                     <div class="project-name overflow">
                         <h2 class="bold">Storm </h2>
                         {% if session["calamity_1_severity"] == "high" %}
-                          <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
+                        <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i> Ask your grandparents to store some packaged food
+                                    in their car in case of an emergency.</li>
+                                <li><i class="fa fa-angle-right"></i> Bring your grandparents and parents together, and
+                                    create a family disaster plan along with them.<a
+                                        href="https://www.business.gov.au/Risk-management/Emergency-management/How-to-prepare-an-emergency-management-plan">
+                                        More Info</a></li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents each week to check the medical
+                                    stock of your grandparents and help your parents in labeling the medicine box of
+                                    your grandparents.</li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents to check for your grandparent's
+                                    balcony is well maintained and clear. Ask your parents to secure heavy items in
+                                    their balcony. </li>
+                                <li><i class="fa fa-angle-right"></i> Regularly help your grandparents to clean gutters,
+                                    downpipes, and drains to prevent blockages in their homes.</li>
+                                <li><i class="fa fa-angle-right"></i> Recommend your grandparents and parents to trim
+                                    the trees in your grandparent's house as they may fall on the house. </li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents to check your grandparent's
+                                    insurance.</li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents and grandparent to sit together
+                                    and recommend them to have a first aid kit at their home all the time.</li>
+                            </ul>
+                        </div>
                         {% endif %}
                         {% if session["calamity_1_severity"] == "medium" %}
-                          <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
+                        <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i> Ask your grandparents to store some packaged food
+                                    in their car in case of an emergency.</li>
+                                <li><i class="fa fa-angle-right"></i> Bring your grandparents and parents together, and
+                                    create a family disaster plan along with them.<a
+                                        href="https://www.business.gov.au/Risk-management/Emergency-management/How-to-prepare-an-emergency-management-plan">
+                                        More Info</a></li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents to check for your grandparent's
+                                    balcony is well maintained and clear. Ask your parents to secure heavy items in
+                                    their balcony. </li>
+                                <li><i class="fa fa-angle-right"></i> Recommend your grandparents and parents to trim
+                                    the trees in your grandparent's house as they may fall on the house. </li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents to check your grandparent's
+                                    insurance.</li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents and grandparent to sit together
+                                    and recommend them to have a first aid kit at their home all the time.</li>
+                            </ul>
+                        </div>
                         {% endif %}
                         {% if session["calamity_1_severity"] == "low" %}
-                          <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
+                        <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i> Ask your parents to check for your grandparent's
+                                    balcony is well maintained and clear. Ask your parents to secure heavy items in
+                                    their balcony. </li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents to check your grandparent's
+                                    insurance.</li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents and grandparent to sit together
+                                    and recommend them to have a first aid kit at their home all the time.</li>
+                            </ul>
+                        </div>
                         {% endif %}
-
-                        <!-- <ul class="nav navbar-nav navbar-default">
-                                  <li><a href="#"><i class="fa fa-clock-o"></i>February11,2014</a></li>
-                                  <li><a href="#"><i class="fa fa-tag"></i>Branding</a></li>
-                              </ul> -->
                     </div>
-                    <div class="project-info overflow">
-                        <h3>Safety Information</h3>
-                        <p></p>
-                        <ul class="elements">
-                            <li><i class="fa fa-angle-right"></i> Ask your grandparents to store some packaged food in their car in case of an emergency.</li>
-                            <li><i class="fa fa-angle-right"></i> Bring your grandparents and parents together, and create a family disaster plan along with them.<a href="https://www.business.gov.au/Risk-management/Emergency-management/How-to-prepare-an-emergency-management-plan"> More Info</a></li>
-                            <li><i class="fa fa-angle-right"></i> Ask your parents each week to check the medical stock of your grandparents and help your parents in labeling the medicine box of your grandparents.</li>
-                            <li><i class="fa fa-angle-right"></i> Ask your parents to check for your grandparent's balcony is well maintained and clear. ask your parents to secure heavy items in their balcony. </li>
-                            <li><i class="fa fa-angle-right"></i> Regularly help your grandparents to clean gutters, downpipes, and drains to prevent blockages in their homes.</li>
-                            <li><i class="fa fa-angle-right"></i> Recommend your grandparents and parents to trim the trees in your grandparent's house as they may fall on the house. </li>
-                            <li><i class="fa fa-angle-right"></i> Ask your parents to check your grandparent's insurance.</li>
-                            <li><i class="fa fa-angle-right"></i> Ask your parents and grandparent to sit together and recommend them to have a first aid kit at their home all the time.</li>
-
-                        </ul>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -181,33 +222,63 @@
                     <div class="project-name overflow">
                         <h2 class="bold">Flood</h2>
                         {% if session["calamity_2_severity"] == "high" %}
-                          <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
+                        <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i> Recommend your grandparents and your parents to
+                                    install waterproof switches at home.</li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents to buy rubber gloves, boots and
+                                    eye protection for your grandparents</li>
+                                <li><i class="fa fa-angle-right"></i> Along with your parents investigate whether your
+                                    grandparent's house pipes are fitted with taps to control water.</li>
+                                <li><i class="fa fa-angle-right"></i> Recommend your grandparents to have "dry
+                                    flood-proofing" coatings applied to walls and doorways so floodwater does not enter
+                                    the house.</li>
+                                <li><i class="fa fa-angle-right"></i> As soon as you see crack anywhere in your
+                                    grandparent's house let them know it can cause leakage of water. </li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents to put torch, battery-operated
+                                    radios and spare batteries in your grandparent's house.</li>
+                            </ul>
+                        </div>
                         {% endif %}
                         {% if session["calamity_2_severity"] == "medium" %}
-                          <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
+                        <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i> Recommend your grandparents and your parents to
+                                    install waterproof switches at home.</li>
+                                <li><i class="fa fa-angle-right"></i> Ask your parents to buy rubber gloves, boots and
+                                    eye protection for your grandparents</li>
+                                <li><i class="fa fa-angle-right"></i> Along with your parents investigate whether your
+                                    grandparent's house pipes are fitted with taps to control water.</li>
+                                <li><i class="fa fa-angle-right"></i> Recommend your grandparents to have "dry
+                                    flood-proofing" coatings applied to walls and doorways so floodwater does not enter
+                                    the house.</li>
+                                <li><i class="fa fa-angle-right"></i> As soon as you see crack anywhere in your
+                                    grandparent's house let them know it can cause leakage of water. </li>
+                            </ul>
+                        </div>
                         {% endif %}
                         {% if session["calamity_2_severity"] == "low" %}
-                          <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
+                        <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i> Recommend your grandparents and your parents to
+                                    install waterproof switches at home.</li>
+                                <li><i class="fa fa-angle-right"></i> Along with your parents investigate whether your
+                                    grandparent's house pipes are fitted with taps to control water.</li>
+                                <li><i class="fa fa-angle-right"></i> As soon as you see crack anywhere in your
+                                    grandparent's house let them know it can cause leakage of water. </li>
+                            </ul>
+                        </div>
                         {% endif %}
-                        <!-- <ul class="nav navbar-nav navbar-default">
-                                  <li><a href="#"><i class="fa fa-clock-o"></i>February11,2014</a></li>
-                                  <li><a href="#"><i class="fa fa-tag"></i>Branding</a></li>
-                              </ul> -->
                     </div>
-                    <div class="project-info overflow">
-                        <h3>Safety Information</h3>
-                        <p></p>
-                        <ul class="elements">
-                            <li><i class="fa fa-angle-right"></i> Recommend your grandparents and your parents to install waterproof switches at home.</li>
-                            <li><i class="fa fa-angle-right"></i> Ask your parents to buy rubber gloves, boots and eye protection for your grandparents</li>
-                            <li><i class="fa fa-angle-right"></i> Along with your parents investigate whether your grandparent's house pipes are fitted with taps to control water.</li>
-                            <li><i class="fa fa-angle-right"></i> Recommend your grandparents to have "dry flood-proofing" coatings applied to walls and doorways so floodwater does not enter the house.</li>
-                            <li><i class="fa fa-angle-right"></i> As soon as you see crack anywhere in your grandparent's house let them know it can cause leakage of water. </li>
-                            <li><i class="fa fa-angle-right"></i> Ask your parents to put torch, battery-operated radios and spare batteries in your grandparent's house.</li>
-
-                        </ul>
-                    </div>
-
                 </div>
                 <div class="col-sm-6">
                     <img src="static/images/flood-resized.jpg" class="img-responsive" alt="" width="450">
@@ -226,34 +297,63 @@
                     <div class="project-name overflow">
                         <h2 class="bold">BushFire </h2>
                         {% if session["calamity_3_severity"] == "high" %}
-                          <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
+                        <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i> Ask your grandparents to seek professional staff
+                                    to clean their roof pipes regularly.</li>
+                                <li><i class="fa fa-angle-right"></i> Recommend your grandparents to install metal mesh
+                                    screens on windows.</li>
+                                <li><i class="fa fa-angle-right"></i> Along with your grandparents fit seals around
+                                    doors and windows to eliminate gaps</li>
+                                <li><i class="fa fa-angle-right"></i> See occasionaly the grass in your grandparents
+                                    house. If it is too high ask them to cut it.</li>
+                                <li><i class="fa fa-angle-right"></i> Recommend your grandparents about to cut any trees
+                                    or shrubs hanging over their building.</li>
+                                <li><i class="fa fa-angle-right"></i> Help your grandparents in cleaning up fallen
+                                    leaves and twigs around their house.</li>
+                                <li><i class="fa fa-angle-right"></i> Together with your grandparents put a water supply
+                                    sign on the pools or tank of your grandparents house.</li>
+                            </ul>
+                        </div>
                         {% endif %}
                         {% if session["calamity_3_severity"] == "medium" %}
-                          <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
+                        <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i> Ask your grandparents to seek professional staff
+                                    to clean their roof pipes regularly.</li>
+                                <li><i class="fa fa-angle-right"></i> Along with your grandparents fit seals around
+                                    doors and windows to eliminate gaps</li>
+                                <li><i class="fa fa-angle-right"></i> Recommend your grandparents about to cut any trees
+                                    or shrubs hanging over their building.</li>
+                                <li><i class="fa fa-angle-right"></i> Help your grandparents in cleaning up fallen
+                                    leaves and twigs around their house.</li>
+                                <li><i class="fa fa-angle-right"></i> Together with your grandparents put a water supply
+                                    sign on the pools or tank of your grandparents house.</li>
+                            </ul>
+                        </div>
                         {% endif %}
                         {% if session["calamity_3_severity"] == "low" %}
-                          <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
+                        <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i> Recommend your grandparents about to cut any trees
+                                    or shrubs hanging over their building.</li>
+                                <li><i class="fa fa-angle-right"></i> Help your grandparents in cleaning up fallen
+                                    leaves and twigs around their house.</li>
+                                <li><i class="fa fa-angle-right"></i> Together with your grandparents put a water supply
+                                    sign on the pools or tank of your grandparents house.</li>
+                            </ul>
+                        </div>
                         {% endif %}
-                        <!-- <ul class="nav navbar-nav navbar-default">
-                                  <li><a href="#"><i class="fa fa-clock-o"></i>February11,2014</a></li>
-                                  <li><a href="#"><i class="fa fa-tag"></i>Branding</a></li>
-                              </ul> -->
                     </div>
-                    <div class="project-info overflow">
-                        <h3>Safety Information</h3>
-                        <p></p>
-                        <ul class="elements">
-                            <li><i class="fa fa-angle-right"></i> Ask your grandparents to seek professional staff to clean their roof pipes regularly.</li>
-                            <li><i class="fa fa-angle-right"></i> Recommend your grandparents to install metal mesh screens on windows.</li>
-                            <li><i class="fa fa-angle-right"></i> Along with your grandparents fit seals around doors and windows to eliminate gaps</li>
-                            <li><i class="fa fa-angle-right"></i> See occasionaly the grass in your grandparents house. If it is too high ask them to cut it.</li>
-                            <li><i class="fa fa-angle-right"></i> Recommend your grandparents about to cut any trees or shrubs hanging over their building.</li>
-                            <li><i class="fa fa-angle-right"></i> Help your grandparents in cleaning up fallen leaves and twigs around their house.</li>
-                            <li><i class="fa fa-angle-right"></i> Together with your grandparents put a  Water Supply sign on the pools or tank of your grandparents house.</li>
-
-                        </ul>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -266,33 +366,61 @@
                     <div class="project-name overflow">
                         <h2 class="bold">Tornado</h2>
                         {% if session["calamity_4_severity"] == "high" %}
-                          <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
+                        <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i>Ask your parents to buy a small radio or
+                                    internet-enabled device if your grandparents do not have it. It is useful in
+                                    communication during a tornado.</li>
+                                <li><i class="fa fa-angle-right"></i>Sit with your parents and grandparent to prepare an
+                                    emergency plan including shelter for your grandparents.</li>
+                                <li><i class="fa fa-angle-right"></i> Create an emergency kit for your grandparents
+                                    along with your parents which should have their medication, water bottles, and
+                                    non-perishable food.</li>
+                                <li><i class="fa fa-angle-right"></i> Stick your parent's phone number within your
+                                    grandparents kitchen or in an easily accessible place for them</li>
+                                <li><i class="fa fa-angle-right"></i> Help your grandparents to remove left over items
+                                    around their house frequently so they do not hurt them in a tornado.</li>
+                            </ul>
+                        </div>
                         {% endif %}
                         {% if session["calamity_4_severity"] == "medium" %}
-                          <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
+                        <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i>Sit with your parents and grandparent to prepare an
+                                    emergency plan including shelter for your grandparents.</li>
+                                <li><i class="fa fa-angle-right"></i> Create an emergency kit for your grandparents
+                                    along with your parents which should have their medication, water bottles, and
+                                    non-perishable food.</li>
+                                <li><i class="fa fa-angle-right"></i> Stick your parent's phone number within your
+                                    grandparents kitchen or in an easily accessible place for them</li>
+                                <li><i class="fa fa-angle-right"></i> Help your grandparents to remove left over items
+                                    around their house frequently so they do not hurt them in a tornado.</li>
+                            </ul>
+                        </div>
                         {% endif %}
                         {% if session["calamity_4_severity"] == "low" %}
-                          <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
+                        <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
+                        <div class="project-info overflow">
+                            <h3>Safety Information</h3>
+                            <p></p>
+                            <ul class="elements">
+                                <li><i class="fa fa-angle-right"></i> Create an emergency kit for your grandparents
+                                    along with your parents which should have their medication, water bottles, and
+                                    non-perishable food.</li>
+                                <li><i class="fa fa-angle-right"></i> Stick your parent's phone number within your
+                                    grandparents kitchen or in an easily accessible place for them</li>
+                                <li><i class="fa fa-angle-right"></i> Help your grandparents to remove left over items
+                                    around their house frequently so they do not hurt them in a tornado.</li>
+                            </ul>
+                        </div>
                         {% endif %}
-                        <!-- <ul class="nav navbar-nav navbar-default">
-                                  <li><a href="#"><i class="fa fa-clock-o"></i>February11,2014</a></li>
-                                  <li><a href="#"><i class="fa fa-tag"></i>Branding</a></li>
-                              </ul> -->
                     </div>
-                    <div class="project-info overflow">
-                        <h3>Safety Information</h3>
-                        <p></p>
-                        <ul class="elements">
-                            <li><i class="fa fa-angle-right"></i>Ask your parents to buy a small radio or internet-enabled device if your grandparents do not have it. It is useful in communication during a tornado.</li>
-                            <li><i class="fa fa-angle-right"></i>Sit with your parents and grandparent to prepare an emergency plan including shelter for your grandparents.</li>
-                            <li><i class="fa fa-angle-right"></i> Create an emergency kit for your grandparents along with your parents which should have their medication, water bottles, and non-perishable food.</li>
-                            <li><i class="fa fa-angle-right"></i> Stick your parent's phone number within your grandparents kitchen or in an easily accessible place for them</li>
-                            <!-- <li><i class="fa fa-angle-right"></i> Put Essentials you have checked above in the safe room.</li> -->
-                            <li><i class="fa fa-angle-right"></i> Help your grandparents to remove left over items around their house frequently so they do not hurt them in a tornado.</li>
-
-                        </ul>
-                    </div>
-
                 </div>
                 <div class="col-sm-6">
                     <img src="static/images/tornado.jpg" class="img-responsive" alt="" width="450">
@@ -317,7 +445,8 @@
                     <div class="copyright-text text-center">
                         <p>Care360</p>
                         <p>
-                            Disclaimer: We provide recommendations on the basis of Australian Government Home Safety,Diet and Physical Activity Guidelines for Older people.
+                            Disclaimer: We provide recommendations on the basis of Australian Government Home
+                            Safety,Diet and Physical Activity Guidelines for Older people.
                         </p>
                         <p> Credits : WebUi Theme by Themeum</p>
                         <p> Credit Images: Freepik.com</p>
@@ -333,8 +462,8 @@
     <script type="text/javascript" src="static/js/lightbox.min.js"></script>
     <script type="text/javascript" src="static/js/wow.min.js"></script>
     <script type="text/javascript" src="static/js/main.js"></script>
-    <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket" ><i></i></a>
-    <script type='text/javascript' src="static/js/rocket.js"></script>
+    <!-- <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket" ><i></i></a>
+    <script type='text/javascript' src="static/js/rocket.js"></script> -->
 </body>
 
 </html>

@@ -14,7 +14,7 @@
   <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
   <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-  <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet">
+  <!-- <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet"> -->
   <link href="{{ url_for('static', filename='css/owl.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/text_glow.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/tickbox.css') }}" rel="stylesheet">
@@ -72,7 +72,7 @@
             <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
             <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
             <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
-            <li><a href="{{ url_for('login') }}">Admin Login</a></li>
+            <!-- <li><a href="{{ url_for('login') }}">Admin Login</a></li> -->
             <!-- <li><a href="#">Credits</a></li> -->
           </ul>
         </div>
@@ -149,7 +149,7 @@
             {% else %}
             <!--- -->
             <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-              <table class="table table-bordered table-curved">
+              <table class="table table-bordered table-curved table-responsive">
                 <thead class="thead-dark">
                   <tr style="background-color:#5dbcd2">
                     <th scope="col" class="text-center">
@@ -340,13 +340,38 @@
 
                   <tr>
                     <td>
-                      <h2>Stair Condition</h2>
+                      <h3 style="font-weight:bold">Stair without handrails</h2>
                     </td>
                     <td>
                       <div class="text">
-                        <h2>Hurry, ask your parents to contact someone to install the stair handrails in your
-                          {{ session['grandparent_gender'] }}'s house. </h2>
+                        <h3 style="font-weight:bold">Hurry, ask your parents to contact someone to install the stair handrails in your
+                          {{ session['grandparent_gender'] }}'s house. Also recommend your elderly that handrails might help them to hold onto them in case they experience slip or fall on the stairs. </h2>
                       </div>
+                    </td>
+                    <td style="width:12%">
+
+
+    <label>
+
+      <input name="checkItems" type="checkbox" />
+      <span class="checkbox-ghost-2"></span>
+
+      <svg width="100" height="100">
+        <g>
+          <circle cx="8" cy="8" r="6"></circle>
+          <circle cx="30" cy="23" r="2"></circle>
+          <circle cx="5" cy="40" r="2"></circle>
+          <circle cx="20" cy="80" r="3"></circle>
+          <circle cx="70" cy="90" r="2"></circle>
+          <circle cx="90" cy="15" r="2"></circle>
+          <circle cx="60" cy="20" r="4"></circle>
+          <circle cx="80" cy="45" r="2"></circle>
+          <circle cx="85" cy="62" r="3"></circle>
+        </g>
+      </svg>
+      Yes!
+    </label>
+
                     </td>
                   </tr>
                   {% endif %}
@@ -410,8 +435,13 @@
           <div class="row">
               <div class="col-sm-12">
                   <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                    {% if session['health_risk'] != "No" %}
   <button name="submit" class="btn btn-success" type="button" value="Save" onclick="window.location.href='{{ url_for( 'healthriskfeedback') }}';">Go to health risk feedback</button>
+  {% endif %}
+  <br><br>
+  {% if session['house_risk'] != "No" %}
   <button name="submit" class="btn btn-success" type="button" value="Save" onclick="window.location.href='{{ url_for( 'housesafetyfeedback') }}';">Go to house safety feedback</button>
+  {% endif %}
 
                   </div>
               </div>
@@ -447,8 +477,8 @@
   <script type="text/javascript" src="static/js/lightbox.min.js"></script>
   <script type="text/javascript" src="static/js/wow.min.js"></script>
   <script type="text/javascript" src="static/js/main.js"></script>
-  <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket"><i></i></a>
-  <script type='text/javascript' src="static/js/rocket.js"></script>
+  <!-- <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket"><i></i></a>
+  <script type='text/javascript' src="static/js/rocket.js"></script> -->
   <script type='text/javascript' src="static/js/text_animation.js"></script>
 </body>
 

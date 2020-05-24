@@ -15,10 +15,40 @@
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-    <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet">
+    <!-- <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet"> -->
     <link href="{{ url_for('static', filename='css/module2.css') }}" rel="stylesheet">
+    <script type="text/javascript">
+ function checkbox_none(){
+    var bathroom_checkbox = document.getElementById('bathroom_checkbox');
+    var kitchen_checkbox = document.getElementById('kitchen_checkbox');
+    var garden_checkbox = document.getElementById('garden_checkbox');
+    var others_checkbox = document.getElementById('others_checkbox');
+    var noneofthese_checkbox = document.getElementById('noneofthese_checkbox');
 
+    // console.log(noneofthese_checkbox);
+    if (noneofthese_checkbox.checked == true)
+    {
+      // console.log("reached here");
+      bathroom_checkbox.checked = false;
+      kitchen_checkbox.checked = false;
+      garden_checkbox.checked = false;
+      others_checkbox.checked = false;
+      bathroom_checkbox.disabled = true;
+      kitchen_checkbox.disabled = true;
+      garden_checkbox.disabled = true;
+      others_checkbox.disabled = true;
+    }
+    if (noneofthese_checkbox.checked == false)
+    {
+      // console.log("reached here");
+      bathroom_checkbox.disabled = false;
+      kitchen_checkbox.disabled = false;
+      garden_checkbox.disabled = false;
+      others_checkbox.disabled = false;
+    }
+ }
 
+</script>
     <!-- [if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
@@ -57,7 +87,7 @@
                         <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
                         <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
                         <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
-                        <li><a href="{{ url_for('login') }}">Admin Login</a></li>
+                        <!-- <li><a href="{{ url_for('login') }}">Admin Login</a></li> -->
                         <!-- <li><a href="#">Credits</a></li> -->
                     </ul>
                 </div>
@@ -112,7 +142,7 @@
                                     <div class="action take-tour">
                                         <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms"
                                             data-wow-delay="300ms">
-                                            <h1 class="title" align="center">That's the last set of questionnaire and that is it.</h1>
+                                            <h1 class="title" align="center">That's the last set of questions and that will be it.</h1>
                                         </div>
 
                                     </div>
@@ -154,11 +184,11 @@
                                     <!-- <h3 class="title" align="center">{{ form.water_presence.label}}</h3> -->
                                     <div align="center">
                                         <!-- {{form.water_presence(rows=3, multiple = True)}} -->
-                                        Bathroom <input type="checkbox" value="Yes" name="wet_option">&nbsp;&nbsp;
-                                        Kitchen <input type="checkbox" value="Yes" name="wet_option">&nbsp;&nbsp;
-                                        Garden <input type="checkbox" value="Yes" name="wet_option">&nbsp;&nbsp;
-                                        Others <input type="checkbox" value="Yes" name="wet_option">&nbsp;&nbsp;
-                                        None of the above  <input type="checkbox" value="No" name="wet_option">
+                                        Bathroom <input type="checkbox" value="Yes" name="wet_option" id ="bathroom_checkbox">&nbsp;&nbsp;
+                                        Kitchen <input type="checkbox" value="Yes" name="wet_option" id ="kitchen_checkbox">&nbsp;&nbsp;
+                                        Garden <input type="checkbox" value="Yes" name="wet_option" id ="garden_checkbox">&nbsp;&nbsp;
+                                        Others <input type="checkbox" value="Yes" name="wet_option" id ="others_checkbox">&nbsp;&nbsp;
+                                        None of the these  <input type="checkbox" value="No" name="wet_option" id ="noneofthese_checkbox" onclick="checkbox_none()">
                                         <!-- {% for error in form.water_presence.errors %}
                                         <tr style="text-align:center">
                                             <td style="text-align:center">{{ subfield }}</td>
@@ -173,6 +203,9 @@
                                                     <h4 class="title" align="center"> {% endfor %}<br>
                                                         <img src="static/images/wf.png" class="img-responsive"
                                                 alt="detective image" width="20%">
+                                                <div class="row" style="margin-top:20px;">
+                                                <div ><button class="btn btn-success center-block" onclick="goToPage('payment')" type="button">Next Question</button></div>
+                                              </div>
                                 </div>
 
                                 <div class="payment noshow">
@@ -201,6 +234,10 @@
                                             <br>
                                                         <img src="static/images/flip.png" class="img-responsive"
                                                 alt="detective image" width="20%">
+                                                <div class="row" style="margin-top:20px;">
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('profile')" type="button">Previous Question</button></div>
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('subscription')" type="button">Next Question</button></div>
+                                                </div>
                                 </div>
 
                                 <div class="subscription noshow">
@@ -225,8 +262,12 @@ Did you see any?</h3>
                                             style="color: red;font-size:14px;">[{{ error }}]</span>
                                         <h4 class="title" align="center"> {% endfor %}
                                             <br>
-                                                        <img src="static/images/wire.png" class="img-responsive"
-                                                alt="detective image" width="20%">
+                                                        <img src="static/images/wires_room.jpeg" class="img-responsive"
+                                                alt="wire_image" width="20%">
+                                                <div class="row" style="margin-top:20px;">
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('payment')" type="button">Previous Question</button></div>
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('weight')" type="button">Next Question</button></div>
+                                                </div>
                                 </div>
 
                                 <div class="weight noshow">
@@ -258,6 +299,10 @@ Did you see any?</h3>
                                         <h4 class="title" align="center"> {% endfor %}
                                           <img src="static/images/cracked-floor.png" class="img-responsive"
                                   alt="detective image" width="20%">
+                                  <div class="row" style="margin-top:20px;">
+                                    <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('subscription')" type="button">Previous Question</button></div>
+                                    <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('privacy')" type="button">Next Question</button></div>
+                                  </div>
                                 </div>
 
                                 <div class="privacy noshow">
@@ -281,6 +326,10 @@ Did you see any?</h3>
                                             <br>
                                                         <img src="static/images/bulb.png" class="img-responsive"
                                                 alt="detective image" width="20%">
+                                                <div class="row" style="margin-top:20px;">
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('weight')" type="button">Previous Question</button></div>
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('settings')" type="button">Next Question</button></div>
+                                                </div>
                                 </div>
 
 
@@ -309,19 +358,26 @@ Did you see any?</h3>
                                         <h4 class="title" align="center"> {% endfor %}
                                             <img src="static/images/grab_bars.png" class="img-responsive"
                                                 alt="detective image" width="20%">
+                                                <div class="row" style="margin-top:20px;">
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('privacy')" type="button">Previous Question</button></div>
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('extra')" type="button">Next Question</button></div>
+                                                </div>
                                 </div>
 
                                 <div class="extra noshow">
                                   <h3 class="title" align="center" style="font-weight:bold">With the help of your elders take a broomstick and press the test button on the smoke detector </h3>
                                   <h3 class="title" align="center" style="font-weight:bold">Did that made beep sound three times?</h3>
                                     <!-- <h3 class="title" align="center">{{ form.smoke_detector.label}}</h3> -->
+                                    {{ form.smoke_detector() }}
                                     <div align="center">
+
                                         {% for subfield in form.smoke_detector %}
-                                        <tr style="text-align:center">
-                                            <td style="text-align:center">{{ subfield }}</td>
-                                            <td style="text-align:center">{{ subfield.label }}</td>
+                                        <!-- <tr style="text-align:center">
+                                            <td style="text-align:left">{{ subfield }}</td>
+                                            <td style="text-align:left">{{ subfield.label }}</td>
                                             &emsp;&emsp;
-                                        </tr>
+                                        </tr> -->
+                                          <!-- <div class="col-xs-12 col-md-6 center">{{ subfield }} {{ subfield.label }}</div> -->
                                         {% endfor %}
                                     </div>
                                     {% for error in form.smoke_detector.errors %}
@@ -330,6 +386,10 @@ Did you see any?</h3>
                                         <h4 class="title" align="center"> {% endfor %}
                                             <img src="static/images/smoke_detector.png" class="img-responsive"
                                                 alt="detective image" width="20%">
+                                                <div class="row" style="margin-top:20px;">
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('settings')" type="button">Previous Question</button></div>
+                                                  <div class="col-xs-6"><button class="btn btn-success pull-left" onclick="goToPage('fire')" type="button">Next Question</button></div>
+                                                </div>
                                 </div>
 
                                 <div class="fire noshow">
@@ -342,7 +402,8 @@ Did you see any?</h3>
                                   <h3 class="title" align="center" style="font-weight:bold">Ask your grandfather if he has a fire extinguisher at his house?</h3>
                                   {% endif %}
                                     <!-- <h3 class="title" align="center">{{ form.fire_extinguisher.label}}</h3> -->
-                                    <div align="center">
+                                    {{ form.fire_extinguisher() }}
+                                    <!-- <div align="center">
                                         {% for subfield in form.fire_extinguisher %}
                                         <tr style="text-align:center">
                                             <td style="text-align:center">{{ subfield }}</td>
@@ -350,7 +411,7 @@ Did you see any?</h3>
                                             &emsp;&emsp;
                                         </tr>
                                         {% endfor %}
-                                    </div>
+                                    </div> -->
                                     {% for error in form.fire_extinguisher.errors %}
                                     <h3 class="title" align="center"><span
                                             style="color: red;font-size:14px;">[{{ error }}]</span>
@@ -358,6 +419,10 @@ Did you see any?</h3>
 
                                 <br> <div align="center" size="20">
                                     {{ form.submit(class= "btn btn-success",  style="height:50px;width:200px")}}
+                                </div>
+
+                                <br>  <div class="row" style="margin-top:20px;" align="center">
+                                  <div><button class="btn btn-success center-block" onclick="goToPage('extra')" type="button">Previous Question</button></div>
                                 </div>
                             </div>
                             </div>
@@ -395,8 +460,8 @@ Did you see any?</h3>
     <script type="text/javascript" src="static/js/lightbox.min.js"></script>
     <script type="text/javascript" src="static/js/wow.min.js"></script>
     <script type="text/javascript" src="static/js/main.js"></script>
-    <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket"><i></i></a>
-    <script type='text/javascript' src="static/js/rocket.js"></script>
+    <!-- <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket"><i></i></a>
+    <script type='text/javascript' src="static/js/rocket.js"></script> -->
     <script>
         /*active button class onclick*/
         $('nav a').click(function (e) {
@@ -439,6 +504,37 @@ Did you see any?</h3>
                 $('.rightbox').children().not('.fire').addClass('noshow');
             }
         });
+        function goToPage(nextPage)
+        {
+          $('nav a').removeClass('active');
+          if(nextPage == "profile"){
+            $("#profile").addClass('active');
+          }
+          if(nextPage == "payment"){
+            $("#payment").addClass('active');
+          }
+          if(nextPage == "subscription"){
+            $("#subscription").addClass('active');
+          }
+          if(nextPage == "weight"){
+            $("#weight").addClass('active');
+          }
+          if(nextPage == "privacy"){
+            $("#privacy").addClass('active');
+          }
+          if(nextPage == "settings"){
+            $("#settings").addClass('active');
+          }
+          if(nextPage == "extra"){
+            $("#extra").addClass('active');
+          }
+          if(nextPage == "fire"){
+            $("#fire").addClass('active');
+          }
+
+          $("."+nextPage).removeClass('noshow');
+          $(".rightbox").children().not('.'+nextPage).addClass('noshow');
+        }
     </script>
 </body>
 

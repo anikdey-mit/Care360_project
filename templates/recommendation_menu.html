@@ -14,10 +14,10 @@
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-    <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet">
+    <!-- <link href="{{ url_for('static', filename='css/rocket.css') }}" rel="stylesheet"> -->
     <link href="{{ url_for('static', filename='css/mind_animation.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/text_glow.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/carousel_card.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/cards.css') }}" rel="stylesheet">
 
     <!-- [if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -31,7 +31,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="static/images/ico/apple-touch-icon-57-precomposed.png">
 </head>
-<!--/head-->
+
 
 <body>
     <header id="header">
@@ -54,11 +54,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{{ url_for('index') }}">Home</a></li>
                         <li class="active"><a href="{{ url_for('healthrisk')}}">Risk Assessment</a></li>
-                        <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
                         <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
-                        <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
-                        <li><a href="{{ url_for('login') }}">Admin Login</a></li>
-                        <!-- <li><a href="#">Credits</a></li> -->
+                        <!-- <li><a href="{{ url_for('login') }}">Admin Login</a></li> -->
                     </ul>
                 </div>
 
@@ -99,65 +96,129 @@
 
                         <h1 class="title" style="font-weight:bold">We have analyzed your result</h1>
 
-<div class="view">
-  <div class="plane main">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
-</div>
+                        <div class="view">
+                            <div class="plane main">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+{% if (session['health_risk'] == "No") and (session['physicalcondition_risk'] == "No") and (session['house_risk'] == "No") %}
+
+    <section id="another-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h1 class="text-red blink-soft" style="color:green;font-weight:bold">Congratulations!! your
+                            {{ session['grandparent_gender'] }} does not have any risk at all.</h1>
+                    </div>
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h2 style="font-weight:bold"> There is no recommendation for your {{ session['grandparent_gender'] }}. Thanks for your time. Have a good day!!</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+
+    {% else %}
+
     <section id="another-section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
                         {% if session['risk_factor'] == 'High Risk' %}
-                         <h1 class="text-red blink-soft" style="color:red;font-weight:bold">Your {{ session['grandparent_gender'] }} has high risk of getting hurt unintentionally.</h1>
-                         {% endif %}
-                         {% if session['risk_factor'] == 'Medium Risk' %}
-                          <h1 class="text-red blink-soft" style="color:red;font-weight:bold">Your {{ session['grandparent_gender'] }} has medium risk of getting hurt unintentionally.</h1>
-                          {% endif %}
-                          {% if session['risk_factor'] == 'Low Risk' %}
-                           <h1 class="text-red blink-soft" style="color:green;font-weight:bold">Congratulations!! your {{ session['grandparent_gender'] }} has low risk of getting unintentional injuries.</h1>
-                           {% endif %}
-            </div>
-            <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-                <h3 style="font-weight:bold"> Please take some time to look at the recommendations below.</h3>
-    </div>
+                        <h1 class="text-red blink-soft" style="color:red;font-weight:bold">Your
+                            {{ session['grandparent_gender'] }} has high risk of getting hurt unintentionally.</h1>
+                        {% endif %}
+                        {% if session['risk_factor'] == 'Medium Risk' %}
+                        <h1 class="text-red blink-soft" style="color:red;font-weight:bold">Your
+                            {{ session['grandparent_gender'] }} has medium risk of getting hurt unintentionally.</h1>
+                        {% endif %}
+                        {% if session['risk_factor'] == 'Low Risk' %}
+                        <h1 class="text-red blink-soft" style="color:green;font-weight:bold">Congratulations!! your
+                            {{ session['grandparent_gender'] }} has low risk of getting unintentional injuries.</h1>
+                        {% endif %}
+                    </div>
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h3 style="font-weight:bold"> Please take some time to look at the recommendations below.</h3>
+                    </div>
 
-            <div class="cards">
-              <div class="card fill-orange" data-card="0">
-                <div class="card__icon" data-icon="1"></div>
-                <div class="card__detail" style="font-weight:bold"><a href="{{ url_for('healthriskfeedback') }}"> Health Risk Feedback </a></div>
-              </div>
-              <div class="card fill-blue" data-card="1">
-                <div class="card__icon" data-icon="2"></div>
-                <div class="card__detail" style="font-weight:bold"><a href="{{ url_for('physicalconditionfeedback') }}"> Physical Condition Feedback</a></div>
-              </div>
-              <div class="card fill-green" data-card="2">
-                <div class="card__icon" data-icon="3"></div>
-                <div class="card__detail" style="font-weight:bold"><a href="{{ url_for('housesafetyfeedback') }}"> House Safety Feedback</a></div>
-              </div>
-            </div>
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
 
+                        <div class="v-center">
+                            {% if session['health_risk'] != "No" %}
+                            <article>
+                                <div class="front" style="background-image: url(/static/images/healthrisk.jpg); background-color: rgba(255,255,255, .7);">
+                                    <div class="text">
+                                        <h1 style="font-weight:bold">Health Risk Feedback</h1>
+                                    </div>
+                                </div>
 
+                                <div class="back">
+                                    <div class="text">
+                                        <h2><strong><a href="{{ url_for('healthriskfeedback') }}"> Recommendations </a></strong></h2>
+                                    </div>
+                                </div>
+                            </article>
+                            {% endif %}
 
-            </div>
-            </div>
-            </div>
+                            {% if session['physicalcondition_risk'] != "No" %}
+                            <article>
+                                <div class="front" style="background-image: url(/static/images/pc.jpg); background-color: rgba(255,255,255, .7);">
+                                    <div class="text">
+                                        <h1 style="font-weight:bold">Physical Condition Feedback</h1>
+                                    </div>
+                                </div>
 
+                                <div class="back">
+                                    <div class="text">
+                                        <h2><strong><a href="{{ url_for('physicalconditionfeedback') }}"> Recommendations </a></strong></h2>
+                                    </div>
+                                </div>
+                            </article>
+                            {% endif %}
+
+                            {% if session['house_risk'] != "No" %}
+                            <article>
+                                <div class="front" style="background-image: url(/static/images/hs.jpg);background-color: rgba(255,255,255, .7);">
+                                    <div class="text">
+                                        <h1 style="font-weight:bold">House Safety Feedback</h1>
+                                    </div>
+                                </div>
+
+                                <div class="back">
+                                    <div class="text">
+                                        <h2><strong><a href="{{ url_for('housesafetyfeedback') }}"> Recommendations </a></strong></h2>
+                                    </div>
+                                </div>
+                            </article>
+                            {% endif %}
+
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <br><br><br><br><br>
+    {% endif %}
+
+
+<br>
 
     <footer id="footer">
         <div class="container">
@@ -168,13 +229,12 @@
 
                 <div class="col-sm-12">
                     <div class="copyright-text text-center">
-                        <p>Care360</p>
-                        <p>
-                            Disclaimer: We provide recommendations on the basis of Australian Government Home
-                            Safety,Diet and Physical Activity Guidelines for Older people.
+                        <p style="color:red">Care360</p>
+                        <p style="color:red">
+                            Disclaimer: We provide recommendations on the basis of Australian Government Home Safety Guidelines for Older people.
                         </p>
-                        <p> Credits : WebUi Theme by Themeum</p>
-                        <p> Credits Images : Freepik.com</p>
+                        <p style="color:red"> Credits : WebUi Theme by Themeum</p>
+                        <p style="color:red"> Credit Images: Freepik.com</p>
                     </div>
                 </div>
             </div>
@@ -187,8 +247,8 @@
     <script type="text/javascript" src="static/js/lightbox.min.js"></script>
     <script type="text/javascript" src="static/js/wow.min.js"></script>
     <script type="text/javascript" src="static/js/main.js"></script>
-    <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket" ><i></i></a>
-    <script type='text/javascript' src="static/js/rocket.js"></script>
+    <!-- <a href="javascript:void(0);" id="rocketmeluncur" class="showrocket" ><i></i></a>
+    <script type='text/javascript' src="static/js/rocket.js"></script> -->
     <script type='text/javascript' src="static/js/text_animation.js"></script>
     <script type='text/javascript' src="static/js/carousal_javascript.js"></script>
     <script type="text/javascript" src="static/js/mind.js"></script>
