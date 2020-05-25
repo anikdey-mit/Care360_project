@@ -25,7 +25,7 @@ REQUIREMENTS
 
 * IDE : Visual Studio Code 
 * Version Control : GitHub 
-* Web Development : Flask, HTML5, CSS, JavaScript, Bootstrap
+* Web Development : Flask, HTML5, CSS, JQuery, Bootstrap
 * Database : SQLlite 
 * Data Wrangling : Python
 
