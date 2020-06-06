@@ -49,10 +49,9 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ url_for('index') }}">Home</a></li>
-                        <li><a href="{{ url_for('healthrisk')}}">Risk Assessment</a></li>
-                        <li class="active"><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
-                        <!-- <li><a href="{{ url_for('login') }}">Admin Login</a></li> -->
+                        <li><a href="{{ url_for('index') }}"><strong>Home</strong></a></li>
+                        <li><a href="{{ url_for('healthrisk')}}"><strong>Risk Assessment</strong></a></li>
+                        <li class="active"><a href="{{ url_for('safetybycouncil')}}"><strong>Natural Disaster Assist</strong></a></li>
                     </ul>
                 </div>
 
@@ -66,10 +65,10 @@
             <div class="row">
                 <div class="main-slider">
                     <div class="slide-text">
-                        <h1>"Lets rise by lifting others"</h1>
-                        <p>
+                        <h1><strong>"Lets rise by lifting others."</strong></h1>
+                        <h4><strong>
                             Lets prepare our grandparents house to be safer from natural calamities.
-                        </p>
+                        </strong></h4>
 
                     </div>
                     <img src="static/images/Photos/kids/Artboard 6.png" class="slider-hill" alt="slider image"
@@ -90,7 +89,7 @@
                 <div class="col-sm-12">
                     <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
                         {% if session['postcode'] %}
-                        <h2 class="title">You selected your grandparents postcode: {{ session['postcode'] }}</h2>
+                        <h2 class="title"><strong>You selected your grandparents postcode: {{ session['postcode'] }}</strong></h2>
                         <p><img src="static/images/Photos/kids/Artboard 35.png" class="img-responsive" alt="child image"
                                 width="20%"></p>
                         <br>
@@ -121,8 +120,8 @@
                 <div class="row">
                     <div class="action take-tour">
                         <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-                            <h1 class="title" align="center">Protect Your elders from getting harmed from these
-                                disasters.</h1>
+                            <h1 class="title" align="center"><strong>Protect your grandparents from getting harmed from these
+                                disasters.</strong></h1>
                         </div>
                     </div>
                 </div>
@@ -139,11 +138,11 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="project-name overflow">
-                        <h2 class="bold">Storm </h2>
+                        <h2 class="bold"><strong>Storm </strong></h2>
                         {% if session["calamity_1_severity"] == "high" %}
                         <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
                             <ul class="elements">
                                 <li><i class="fa fa-angle-right"></i> Ask your grandparents to store some packaged food
@@ -156,7 +155,7 @@
                                     stock of your grandparents and help your parents in labeling the medicine box of
                                     your grandparents.</li>
                                 <li><i class="fa fa-angle-right"></i> Ask your parents to check for your grandparent's
-                                    balcony is well maintained and clear. Ask your parents to secure heavy items in
+                                    balcony(if the house has a balcony) is well maintained and clear. Ask your parents to secure heavy items in
                                     their balcony. </li>
                                 <li><i class="fa fa-angle-right"></i> Regularly help your grandparents to clean gutters,
                                     downpipes, and drains to prevent blockages in their homes.</li>
@@ -172,7 +171,7 @@
                         {% if session["calamity_1_severity"] == "medium" %}
                         <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
                             <ul class="elements">
                                 <li><i class="fa fa-angle-right"></i> Ask your grandparents to store some packaged food
@@ -182,7 +181,7 @@
                                         href="https://www.business.gov.au/Risk-management/Emergency-management/How-to-prepare-an-emergency-management-plan">
                                         More Info</a></li>
                                 <li><i class="fa fa-angle-right"></i> Ask your parents to check for your grandparent's
-                                    balcony is well maintained and clear. Ask your parents to secure heavy items in
+                                    balcony(if the house has a balcony) is well maintained and clear. Ask your parents to secure heavy items in
                                     their balcony. </li>
                                 <li><i class="fa fa-angle-right"></i> Recommend your grandparents and parents to trim
                                     the trees in your grandparent's house as they may fall on the house. </li>
@@ -196,17 +195,16 @@
                         {% if session["calamity_1_severity"] == "low" %}
                         <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
-                            <ul class="elements">
+                            <ul class="elements"><strong>
                                 <li><i class="fa fa-angle-right"></i> Ask your parents to check for your grandparent's
-                                    balcony is well maintained and clear. Ask your parents to secure heavy items in
-                                    their balcony. </li>
+                                    balcony(if the house has a balcony) is well maintained and clear.</li>
                                 <li><i class="fa fa-angle-right"></i> Ask your parents to check your grandparent's
                                     insurance.</li>
                                 <li><i class="fa fa-angle-right"></i> Ask your parents and grandparent to sit together
                                     and recommend them to have a first aid kit at their home all the time.</li>
-                            </ul>
+                                    <strong></ul>
                         </div>
                         {% endif %}
                     </div>
@@ -220,11 +218,11 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="project-name overflow">
-                        <h2 class="bold">Flood</h2>
+                        <h2 class="bold"><strong>Flood</strong></h2>
                         {% if session["calamity_2_severity"] == "high" %}
                         <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
                             <ul class="elements">
                                 <li><i class="fa fa-angle-right"></i> Recommend your grandparents and your parents to
@@ -236,7 +234,7 @@
                                 <li><i class="fa fa-angle-right"></i> Recommend your grandparents to have "dry
                                     flood-proofing" coatings applied to walls and doorways so floodwater does not enter
                                     the house.</li>
-                                <li><i class="fa fa-angle-right"></i> As soon as you see crack anywhere in your
+                                <li><i class="fa fa-angle-right"></i> As soon as you see a crack anywhere in your
                                     grandparent's house let them know it can cause leakage of water. </li>
                                 <li><i class="fa fa-angle-right"></i> Ask your parents to put torch, battery-operated
                                     radios and spare batteries in your grandparent's house.</li>
@@ -246,7 +244,7 @@
                         {% if session["calamity_2_severity"] == "medium" %}
                         <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
                             <ul class="elements">
                                 <li><i class="fa fa-angle-right"></i> Recommend your grandparents and your parents to
@@ -258,7 +256,7 @@
                                 <li><i class="fa fa-angle-right"></i> Recommend your grandparents to have "dry
                                     flood-proofing" coatings applied to walls and doorways so floodwater does not enter
                                     the house.</li>
-                                <li><i class="fa fa-angle-right"></i> As soon as you see crack anywhere in your
+                                <li><i class="fa fa-angle-right"></i> As soon as you see a crack anywhere in your
                                     grandparent's house let them know it can cause leakage of water. </li>
                             </ul>
                         </div>
@@ -266,14 +264,14 @@
                         {% if session["calamity_2_severity"] == "low" %}
                         <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
                             <ul class="elements">
                                 <li><i class="fa fa-angle-right"></i> Recommend your grandparents and your parents to
                                     install waterproof switches at home.</li>
                                 <li><i class="fa fa-angle-right"></i> Along with your parents investigate whether your
                                     grandparent's house pipes are fitted with taps to control water.</li>
-                                <li><i class="fa fa-angle-right"></i> As soon as you see crack anywhere in your
+                                <li><i class="fa fa-angle-right"></i> As soon as you see a crack anywhere in your
                                     grandparent's house let them know it can cause leakage of water. </li>
                             </ul>
                         </div>
@@ -295,11 +293,11 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="project-name overflow">
-                        <h2 class="bold">BushFire </h2>
+                        <h2 class="bold"><strong>BushFire</strong> </h2>
                         {% if session["calamity_3_severity"] == "high" %}
                         <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
                             <ul class="elements">
                                 <li><i class="fa fa-angle-right"></i> Ask your grandparents to seek professional staff
@@ -322,7 +320,7 @@
                         {% if session["calamity_3_severity"] == "medium" %}
                         <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
                             <ul class="elements">
                                 <li><i class="fa fa-angle-right"></i> Ask your grandparents to seek professional staff
@@ -341,7 +339,7 @@
                         {% if session["calamity_3_severity"] == "low" %}
                         <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
                             <ul class="elements">
                                 <li><i class="fa fa-angle-right"></i> Recommend your grandparents about to cut any trees
@@ -364,11 +362,11 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="project-name overflow">
-                        <h2 class="bold">Tornado</h2>
+                        <h2 class="bold"><strong>Tornado</strong></h2>
                         {% if session["calamity_4_severity"] == "high" %}
                         <h3 style="color:red;font-weight:bold">Risk Factor : High </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
                             <ul class="elements">
                                 <li><i class="fa fa-angle-right"></i>Ask your parents to buy a small radio or
@@ -389,7 +387,7 @@
                         {% if session["calamity_4_severity"] == "medium" %}
                         <h3 style="color:orange;font-weight:bold">Risk Factor : Medium </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
                             <ul class="elements">
                                 <li><i class="fa fa-angle-right"></i>Sit with your parents and grandparent to prepare an
@@ -407,7 +405,7 @@
                         {% if session["calamity_4_severity"] == "low" %}
                         <h3 style="color:green;font-weight:bold">Risk Factor : Low </h3>
                         <div class="project-info overflow">
-                            <h3>Safety Information</h3>
+                            <h3><strong>Safety Information</strong></h3>
                             <p></p>
                             <ul class="elements">
                                 <li><i class="fa fa-angle-right"></i> Create an emergency kit for your grandparents
@@ -429,9 +427,29 @@
         </div>
     </section>
     {% endif %} {% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
 
-    <br>
-    <br>
+    <section id="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+              <br>
+              <button name="submit" class="btn btn-info" type="button" value="Save" style="height:50px;width:250px"
+                onclick="window.location.href='{{ url_for( 'index') }}';">Go to homepage</button>
+<br>
+                <br>
+              <button name="submit" class="btn btn-info" type="button" value="Save" style="height:50px;width:250px"
+                onclick="window.location.href='{{ url_for( 'safetybycouncil') }}';">Go to previous page</button>
+  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <br>
 
     <footer id="footer">
@@ -443,15 +461,15 @@
 
                 <div class="col-sm-12">
                     <div class="copyright-text text-center">
-                        <p>Care360</p>
-                        <p>
-                            Disclaimer: We provide recommendations on the basis of Australian Government Home
-                            Safety,Diet and Physical Activity Guidelines for Older people.
-                        </p>
-                        <p> Credits : WebUi Theme by Themeum</p>
-                        <p> Credit Images: Freepik.com</p>
+                      <p style="color:black">Care360</p>
+                      <p style="color:black">
+                        Disclaimer: We provide recommendations on the basis of Australian Government Home Safety Guidelines for
+                        Older people.
+                      </p>
+                      <p style="color:black"> Credits : WebUi Theme by Themeum</p>
+                      <p style="color:black"> Credit Images: Freepik.com</p>
                     </div>
-                </div>
+                  </div>
             </div>
         </div>
     </footer>

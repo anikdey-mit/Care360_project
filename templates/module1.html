@@ -82,13 +82,9 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ url_for('index') }}">Home</a></li>
-                        <li class="active"><a href="{{ url_for('healthrisk')}}">Risk Assessment</a></li>
-                        <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
-                        <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
-                        <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
-                        <!-- <li><a href="{{ url_for('login') }}">Admin Login</a></li> -->
-                        <!-- <li><a href="#">Credits</a></li> -->
+                        <li><a href="{{ url_for('index') }}"><strong>Home</strong></a></li>
+                        <li class="active"><a href="{{ url_for('healthrisk')}}"><strong>Risk Assessment</strong></a></li>
+                        <li><a href="{{ url_for('safetybycouncil')}}"><strong>Natural Disaster Assist</strong></a></li>
                     </ul>
                 </div>
 
@@ -102,10 +98,10 @@
             <div class="row">
                 <div class="main-slider">
                     <div class="slide-text">
-                        <h1>Time to Observe Your Grandparents</h1>
-                        <p>
+                        <h1><strong>Time to observe your grandparents.</strong></h1>
+                        <h3><strong>
                             Your grandparents have looked after you from your childhood. Now it's your turn to pay back.
-                        </p>
+                        </strong></h3>
 
                     </div>
                     <img src="static/images/Photos/kids/Artboard 2.png" class="slider-hill" alt="slider image"
@@ -128,9 +124,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <h1 class="title">Safety Assessment</h1>
-                        <h3> Complete these questionnaires below after observing your grandparents.
-                        </h3>
+                        <h1 class="title"><strong>Physical condition assessment</strong></h1>
+                        <h3><strong>This assessment is based on the physical condition of your {{session['grandparent_gender']}}.
+                        </strong></h3>
                         <p><img src="static/images/oldyoung.png" class="img-responsive" alt="detective image"
                                 width="20%"></p>
                     </div>
@@ -141,8 +137,8 @@
                                     <div class="action take-tour">
                                         <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms"
                                             data-wow-delay="300ms">
-                                            <h1 class="title" align="center">Please Fill the questionnaire below</h1>
-                                            <p align="center"> Just couple of more questions to fill.</p>
+                                            <h1 class="title" align="center"><strong>Please fill the questionnaires below</strong></h1>
+                                            <h3 align="center"><strong>Observe your {{session['grandparent_gender']}} carefully and fill out.</strong></h3>
                                         </div>
 
                                     </div>
@@ -308,7 +304,7 @@
 
 
                                             <div id="handrails_block">
-                                              <h3 class="title" align="center" style="font-weight:bold">Many elderly people get injured going up or down stairs if there are no handrails for them to hold on to. </h3>
+                                              <h3 class="title" align="center" style="font-weight:bold">Many elderly people get injured going up or downstairs if there are no handrails for them to hold on to.</h3>
                                                 <h3 class="title" align="center">{{ form.stairs_handrails.label}}</h3>
                                                 <div align="center"> {% for subfield in form.stairs_handrails %}
                                                     <tr style="text-align:center">
@@ -372,13 +368,13 @@
 
                 <div class="col-sm-12">
                     <div class="copyright-text text-center">
-                        <p style="color:red">Care360</p>
-                        <p style="color:red">
+                        <p style="color:black">Care360</p>
+                        <p style="color:black">
                             Disclaimer: We provide recommendations on the basis of Australian Government Home Safety
                             Guidelines for Older people.
                         </p>
-                        <p style="color:red"> Credits : WebUi Theme by Themeum</p>
-                        <p style="color:red"> Credit Images: Freepik.com</p>
+                        <p style="color:black"> Credits : WebUi Theme by Themeum</p>
+                        <p style="color:black"> Credit Images: Freepik.com</p>
                     </div>
                 </div>
             </div>

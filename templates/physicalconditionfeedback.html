@@ -67,13 +67,9 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li class="active"><a href="{{ url_for('healthrisk')}}">Risk Assessment</a></li>
-            <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
-            <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
-            <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
-            <!-- <li><a href="{{ url_for('login') }}">Admin Login</a></li> -->
-            <!-- <li><a href="#">Credits</a></li> -->
+            <li><a href="{{ url_for('index') }}"><strong>Home</strong></a></li>
+            <li class="active"><a href="{{ url_for('healthrisk')}}"><strong>Risk Assessment</strong></a></li>
+            <li><a href="{{ url_for('safetybycouncil')}}"><strong>Natural Disaster Assist</strong></a></li>
           </ul>
         </div>
 
@@ -87,10 +83,10 @@
       <div class="row">
         <div class="main-slider">
           <div class="slide-text">
-            <h1>Put on Your Capes, Time to change the world</h1>
-            <p>
+            <h1><strong>Put on your capes, time to change the world.</strong></h1>
+            <h3><strong>
               “Physical fitness is the first requisite of happiness.” – Joseph Pilates. Make your grandparents happy.
-            </p>
+            </strong></h3>
 
           </div>
           <img src="static/images/Photos/kids/Artboard 8.png" class="slider-hill" alt="slider image" height="350px"
@@ -213,8 +209,8 @@
                     <td>
                       <div class="text">
                         <h3 style="font-weight:bold">
-                          With the help of your {{ session['grandparent_gender'] }} arrange frequently used dishes and vessels in the lower cabinets of kitchen.
-                          Also, ask your {{ session['grandparent_gender'] }} to remove any large sharp knives if there are any from her kitchen.
+                          With the help of your {{ session['grandparent_gender'] }} arrange frequently used dishes and vessels in the lower cabinets of the kitchen.
+                          Also, ask your {{ session['grandparent_gender'] }} to remove any large sharp knives from {% if session['grandparent_gender'] == 'grandfather' %}his {% else %} her {% endif %} kitchen if there are any.
                         </h3>
                       </div>
                     </td>
@@ -255,7 +251,7 @@
                       <div class="text">
                         <h3 style="font-weight:bold">
                           Recommend your {{ session['grandparent_gender'] }} to use the walking stick or walker if necessary.
-                          Also, ask {% if session['grandparent_gender'] == 'grandfather' %}him {% else %} her {% endif %} to join a walking program and buy orthopedic shoes that can help {% if session['grandparent_gender'] == 'grandfather' %}him {% else %} her {% endif %} maintain body postures.
+                          Also, ask {% if session['grandparent_gender'] == 'grandfather' %}him {% else %} her {% endif %} to join a walking program and buy orthopedic shoes that can help {% if session['grandparent_gender'] == 'grandfather' %}him {% else %} her {% endif %} to maintain body postures.
 
                           </h3>
                       </div>
@@ -297,7 +293,7 @@
                     <td>
                       <div class="text">
                         <h3 style="font-weight:bold">
-                          The ability to stand up from a chair makes a huge difference in the life of the elderly.  It helps with essential activities like getting up from the toilet and bed.
+                          The ability to stand up from a chair makes a huge difference in the life of the elderly. It helps with essential activities like getting up from the toilet and bed.
                           Recommend your {{ session['grandparent_gender'] }} to do sit to stand exercise if possible. Show this <a href= "https://www.youtube.com/watch?v=chZryRzvJnY">video</a> to your {{ session['grandparent_gender'] }} for more help.
 
                         </h3>
@@ -345,7 +341,7 @@
                     <td>
                       <div class="text">
                         <h3 style="font-weight:bold">Hurry, ask your parents to contact someone to install the stair handrails in your
-                          {{ session['grandparent_gender'] }}'s house. Also recommend your elderly that handrails might help them to hold onto them in case they experience slip or fall on the stairs. </h2>
+                          {{ session['grandparent_gender'] }}'s house. Also recommend your elderly that handrails might help them to hold onto them in case of fall or slip. </h3>
                       </div>
                     </td>
                     <td style="width:12%">
@@ -386,8 +382,8 @@
                     <td>
                       <div class="text">
                         <h3 style="font-weight:bold">
-                          In case of an emergency, your {{ session['grandparent_gender'] }} should have emergency contact details within   {% if session['grandparent_gender'] == 'grandfather' %}him {% else %} her {% endif %} phone or in   {% if session['grandparent_gender'] == 'grandfather' %}him {% else %} her {% endif %} address book.
-                          Better post a magnetic note with emergency phone number of your parent on your {{ session['grandparent_gender'] }}'s refrigerator or beside her bed.
+                          In case of an emergency, your {{ session['grandparent_gender'] }} should have emergency contact details within   {% if session['grandparent_gender'] == 'grandfather' %}his {% else %} her {% endif %} phone or in   {% if session['grandparent_gender'] == 'grandfather' %}his {% else %} her {% endif %} address book.
+                          Better post a magnetic note with emergency phone number of your parent on your {{ session['grandparent_gender'] }}'s refrigerator or beside {% if session['grandparent_gender'] == 'grandfather' %}his {% else %} her {% endif %} bed.
                         </h3>
                       </div>
                     </td>
@@ -438,10 +434,15 @@
                     {% if session['health_risk'] != "No" %}
   <button name="submit" class="btn btn-success" type="button" value="Save" onclick="window.location.href='{{ url_for( 'healthriskfeedback') }}';">Go to health risk feedback</button>
   {% endif %}
-  <br><br>
   {% if session['house_risk'] != "No" %}
+  <br><br>
   <button name="submit" class="btn btn-success" type="button" value="Save" onclick="window.location.href='{{ url_for( 'housesafetyfeedback') }}';">Go to house safety feedback</button>
   {% endif %}
+
+  <br>
+            <br>
+            <button name="submit" class="btn btn-info" type="button" value="Save" style="height:50px;width:250px"
+              onclick="window.location.href='{{ url_for( 'index') }}';">Go back to the homepage</button>
 
                   </div>
               </div>
@@ -459,13 +460,13 @@
 
         <div class="col-sm-12">
           <div class="copyright-text text-center">
-            <p style="color:red">Care360</p>
-            <p style="color:red">
+            <p style="color:black">Care360</p>
+            <p style="color:black">
               Disclaimer: We provide recommendations on the basis of Australian Government Home Safety Guidelines for
               Older people.
             </p>
-            <p style="color:red"> Credits : WebUi Theme by Themeum</p>
-            <p style="color:red"> Credit Images: Freepik.com</p>
+            <p style="color:black"> Credits : WebUi Theme by Themeum</p>
+            <p style="color:black"> Credit Images: Freepik.com</p>
           </div>
         </div>
       </div>

@@ -80,6 +80,10 @@
       alert("Please only enter numeric characters only for age")
     }
 
+    if (age < 65 || age > 110){
+      alert("Age should be above 65 years and below 110 years");
+    }
+
   }
 
   function centimeter_verification() {
@@ -104,13 +108,13 @@
 
   function inches_verification() {
     var height_inches = document.getElementById("height_inches").value;
-    if(!height_inches.match(/^\d+$/))
-    {
-      alert("Please only enter numeric characters for inches")
-    }
-    if (height_inches < 0 || height_inches > 12){
-      alert("feet value should be between 1 and 12")
-    }
+    // if(!height_inches.match(/^\d+$/))
+    // {
+    //   alert("Please only enter numeric characters for inches")
+    // }
+    // if (height_inches < 0 || height_inches > 12){
+    //   alert("feet value should be between 1 and 12")
+    // }
   }
 
   function child_verification() {
@@ -167,10 +171,20 @@
       alert('Please fill the height in centimeters')
       return false;
     }
-    if (height_unit == "Feets" && (height_inches == null || height_inches == "" || height_inches > 12)){
-      alert('Please fill the height inches correctly')
+    // if (height_unit == "Feets" && (height_inches == null || height_inches == "" || height_inches > 12)){
+    //   alert('Please fill the height inches correctly')
+    //   return false;
+    // }
+    if (age < 65 || age > 110){
+      alert("Age should be above 65 years and below 110 years");
       return false;
     }
+
+    if (age == null || age == ""){
+      alert("Please fill the age");
+      return false;
+    }
+
 
     //
     // if (weight_unit === "Pounds" && pound == null || pound == "", weight_unit === "Kilograms" && kilogram == null || kilogram == "", height_unit === "Feets" && height_feet == null || height_feet == "", height_unit === "Centimeters" && height_centimeters == null || height_centimeters == "", height_unit=== "Feets" && height_inches == null || height_inches == ""){
@@ -260,13 +274,9 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="{{ url_for('index') }}">Home</a></li>
-              <li  class="active"><a href="{{ url_for('healthrisk')}}">Risk Assessment</a></li>
-              <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
-              <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
-              <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
-              <!-- <li ><a href="{{ url_for('login') }}">Admin Login</a></li> -->
-              <!-- <li><a href="#">Credits</a></li> -->
+              <li><a href="{{ url_for('index') }}"><strong>Home</strong></a></li>
+              <li  class="active"><a href="{{ url_for('healthrisk')}}"><strong>Risk Assessment</strong></a></li>
+              <li><a href="{{ url_for('safetybycouncil')}}"><strong>Natural Disaster Assist</strong></a></li>
             </ul>
           </div>
 
@@ -280,10 +290,10 @@
         <div class="row">
           <div class="main-slider">
             <div class="slide-text">
-              <h1>Introduce your grandparents to us!!</h1>
-              <p>
-                In order for effective and accurate safety recommendation let us know about your grandparents.
-              </p>
+              <h1><strong>Introduce your grandparents to us!!</strong></h1>
+              <h3><strong>
+                In order for effective and accurate safety recommendations let us know about your grandparents.
+              </strong></h3>
 
             </div>
             <img src="static/images/Photos/kids/Artboard 5.png" class="slider-hill" alt="slider image" height="350px"
@@ -306,10 +316,9 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-              <h1 class="title">Please introduce your grandparents to us.</h1>
-              <p> In order to give accurate recommendation using our super intelligent system ,please fill details related
-                to your grandparents below.
-              </p>
+              <h1 class="title"><strong>Please introduce your grandparents to us.</strong></h1>
+              <h3><strong>We want to know the details of your grandparents like age, height, weight and some habits.
+              </strong></h3>
               <p><img src="static/images/Photos/elder/Artboard 1.png" class="img-responsive" alt="detective image"
                 width="20%"></p>
               </div>
@@ -320,8 +329,8 @@
                     <div class="row">
                       <div class="action take-tour">
                         <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-                          <h1 class="title" align="center">Take a moment to fill the questionnaires below</h1>
-                          <p align="center"> You can go to select question by clicking buttons on the left side of the questions menu.</p>
+                          <h1 class="title" align="center"><strong>Take a moment to fill the questionnaires below</strong></h1>
+                          <p align="center"><strong>You can go to the next question by clicking on the 'NEXT QUESTION' button. You can also select questions by clicking icons on the left side of the questions menu.</strong></p>
                         </div>
 
                       </div>
@@ -377,7 +386,6 @@
                             <div id="gender_female">
                               <h3 class="title" align="center" style="font-weight:bold">Please enter your grandmother's age.</h3>
                             </div>
-                            <!-- <h3 class="title" align="center">{{ form.age.label }}</h3> -->
                             <div class="row">
                               <div class="col-sm-4 col-sm-offset-4">
                                 <h4 class="title" align="center">{{form.age(class = "form-control", placeholder="Age in years")}}</h4>
@@ -406,20 +414,15 @@
                                 </div>
                               </div>
                             </div>
-                            <!-- <div class="row" style="margin-top:325px;">
-                              <div class="col-sm-6"><button class="btn btn-success">Previous Question</button></div>
-                              <div class="col-sm-6"><button class="btn btn-success">Next Question</button></div>
-                            </div> -->
                           </div>
 
                           <div class="subscription noshow">
                             <div id="male_height">
-                              <h3 class="title" align="center" style="font-weight:bold">How tall is your grandfather?</h3>
+                              <h3 class="title" align="center" style="font-weight:bold">How tall is your grandfather? If you don't know then ask him.</h3>
                             </div>
                             <div id="female_height">
-                              <h3 class="title" align="center" style="font-weight:bold">How tall is your grandmother?</h3>
+                              <h3 class="title" align="center" style="font-weight:bold">How tall is your grandmother? If you don't know then ask her.</h3>
                             </div>
-                            <!-- <h3 class="title" align="center">{{ form.height_unit.label }}</h3> -->
                             <h4 class="title" align="center">{{form.height_unit(class="btn btn-success dropdown-toggle")}}</h4>
                             {% for error in form.height_unit.errors %}
                             <h3 class="title" align="center"><span style="color: red;font-size:14px;">[{{ error }}]</span>
@@ -470,10 +473,10 @@
                           <div class="weight noshow">
 
                             <div id="male_weight">
-                              <h3 class="title" align="center" style="font-weight:bold">How much does your grandfather weigh?</h3>
+                              <h3 class="title" align="center" style="font-weight:bold">How much does your grandfather weigh? If you don't know then ask him.</h3>
                             </div>
                             <div id="female_weight">
-                              <h3 class="title" align="center" style="font-weight:bold">How much does your grandmother weigh?</h3>
+                              <h3 class="title" align="center" style="font-weight:bold">How much does your grandmother weigh? If you don't know then ask her.</h3>
                             </div>
                             <!-- <h3 class="title" align="center">{{ form.height_unit.label }}</h3> -->
                             <h4 class="title" align="center">{{form.weight_unit(class="btn btn-success dropdown-toggle")}}</h4>
@@ -610,13 +613,13 @@
 
                     <div class="col-sm-12">
                       <div class="copyright-text text-center">
-                        <p style="color:red">Care360</p>
-                        <p style="color:red">
+                        <p style="color:black">Care360</p>
+                        <p style="color:black">
                           Disclaimer: We provide recommendations on the basis of Australian Government Home Safety Guidelines for
                           Older people.
                         </p>
-                        <p style="color:red"> Credits : WebUi Theme by Themeum</p>
-                        <p style="color:red"> Credit Images: Freepik.com</p>
+                        <p style="color:black"> Credits : WebUi Theme by Themeum</p>
+                        <p style="color:black"> Credit Images: Freepik.com</p>
                       </div>
                     </div>
                   </div>

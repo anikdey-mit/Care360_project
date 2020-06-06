@@ -82,13 +82,9 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ url_for('index') }}">Home</a></li>
-                        <li class="active"><a href="{{ url_for('healthrisk')}}">Risk Assessment</a></li>
-                        <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
-                        <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
-                        <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
-                        <!-- <li><a href="{{ url_for('login') }}">Admin Login</a></li> -->
-                        <!-- <li><a href="#">Credits</a></li> -->
+                        <li><a href="{{ url_for('index') }}"><strong>Home</strong></a></li>
+                        <li class="active"><a href="{{ url_for('healthrisk')}}"><strong>Risk Assessment</strong></a></li>
+                        <li><a href="{{ url_for('safetybycouncil')}}"><strong>Natural Disaster Assist</strong></a></li>
                     </ul>
                 </div>
 
@@ -102,11 +98,10 @@
             <div class="row">
                 <div class="main-slider">
                     <div class="slide-text">
-                        <h1>Time to be Assessor</h1>
-                        <p>
-                            Assess the house environment of your grandparents and change their living environment for
-                            effective life style.
-                        </p>
+                        <h1><strong>Time to be an assessor</strong></h1>
+                        <h3><strong>
+                            Check and try to figure out potential risks in your grandparent's house which may cause injuries to them.
+                        </strong></h3>
 
                     </div>
                     <img src="static/images/Photos/kids/Artboard 7.png" class="slider-hill" alt="slider image"
@@ -129,9 +124,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <h1 class="title">House Safety Assesment</h1>
-                        <p> Complete this questionnaire at your grandparents house.
-                        </p>
+                        <h1 class="title"><strong>House safety assesment</strong></h1>
+                        <h3><strong>Observe your {{session['grandparent_gender']}}'s house carefully and complete this questionnaire below.</strong>
+                        </h3>
                         <p><img src="static/images/detective.jpg" class="img-responsive" alt="detective image"
                                 width="20%"></p>
                     </div>
@@ -142,7 +137,7 @@
                                     <div class="action take-tour">
                                         <div class="col-sm-12 wow fadeInLeft" data-wow-duration="500ms"
                                             data-wow-delay="300ms">
-                                            <h1 class="title" align="center">That's the last set of questions and that will be it.</h1>
+                                            <h1 class="title" align="center"><strong>This is the last set of the questions.</strong></h1>
                                         </div>
 
                                     </div>
@@ -210,11 +205,11 @@
 
                                 <div class="payment noshow">
                                   {% if session['grandparent_gender'] == "grandmother" %}
-                                  <h3 class="title" align="center" style="font-weight:bold">Elderly people sometimes hurt themselves when they slip on a mat or rug</h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">Elderly people sometimes hurt themselves when they slip on a mat or rug.</h3>
                                     <h3 class="title" align="center" style="font-weight:bold">Walk around the house and look for rugs or mats that could slip or that have edges that curl upwards.<br> Did you see anything that you think your grandmother might slip or trip on?</h3>
                                   {% endif %}
                                   {% if session['grandparent_gender'] == "grandfather" %}
-                                  <h3 class="title" align="center" style="font-weight:bold">Elderly people often hurt themselves when they slip on a mat or rug. </h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">Elderly people often hurt themselves when they slip on a mat or rug.</h3>
                                   <h3 class="title" align="center" style="font-weight:bold">Walk around the house and look for rugs or mats that could slip or that have edges that curl upwards. <br>Did you see anything that you think your grandfather might slip or trip on?</h3>
                                   {% endif %}
                                     <!-- <h3 class="title" align="center">{{ form.slip_products.label}}</h3> -->
@@ -242,13 +237,13 @@
 
                                 <div class="subscription noshow">
                                   {% if session['grandparent_gender'] == "grandmother" %}
-                                  <h3 class="title" align="center" style="font-weight:bold">Elderly people sometimes trip on wires, chords or cables on the floor.</h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">Elderly people sometimes trip on wires, cords or cables on the floor.</h3>
                                     <h3 class="title" align="center" style="font-weight:bold">Walk around the house and look in all the rooms for <br>extension leads or any kind of cables that could cause your grandmother to trip over.
 
 Did you see any?</h3>
                                   {% endif %}
                                   {% if session['grandparent_gender'] == "grandfather" %}
-                                  <h3 class="title" align="center" style="font-weight:bold">Elderly people sometimes trip on wires, chords or cables on the floor. </h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">Elderly people sometimes trip on wires, cords or cables on the floor. </h3>
                                   <h3 class="title" align="center" style="font-weight:bold">Walk around the house and look in all the rooms for <br>extension leads or any kind of cables that could cause your grandfather to trip over.
 
 Did you see any?</h3>
@@ -309,11 +304,11 @@ Did you see any?</h3>
 
                                   {% if session['grandparent_gender'] == "grandmother" %}
                                   <h3 class="title" align="center" style="font-weight:bold">When you grow older, it gets difficult to see things properly.</h3>
-                                    <h3 class="title" align="center" style="font-weight:bold">Is there enough light in all of the rooms of your grandmother’s house to easily see where they are going?</h3>
+                                    <h3 class="title" align="center" style="font-weight:bold">Is there enough light in all of the rooms of your grandmother's house so she doesn't hurt herself?</h3>
                                   {% endif %}
                                   {% if session['grandparent_gender'] == "grandfather" %}
                                   <h3 class="title" align="center" style="font-weight:bold">When you grow older, it gets difficult to see things properly. </h3>
-                                  <h3 class="title" align="center" style="font-weight:bold">Is there enough light in all of the rooms of your grandfather's house to easily see where they are going?</h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">Is there enough light in all of the rooms of your grandfather's house so he doesn't hurt himself?</h3>
                                   {% endif %}
                                     <!-- <h3 class="title" align="center">{{ form.electrical_cords.label}}</h3> -->
                                     <div align="center">
@@ -335,12 +330,12 @@ Did you see any?</h3>
 
                                 <div class="settings noshow">
                                   {% if session['grandparent_gender'] == "grandmother" %}
-                                  <h3 class="title" align="center" style="font-weight:bold">Some elderly people have trouble getting in and out of the shower <br> or bath and need handles to stop themselves falling over.</h3>
-                                    <h3 class="title" align="center" style="font-weight:bold">Do you see any handles in your grandmother’s bathroom like the one in the picture?</h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">Some elderly people have trouble getting in and out of the shower <br> or bath and need handle to stop themselves from falling over.</h3>
+                                    <h3 class="title" align="center" style="font-weight:bold">Do you see any handle in your grandmother’s bathroom like the one in the picture?</h3>
                                   {% endif %}
                                   {% if session['grandparent_gender'] == "grandfather" %}
-                                  <h3 class="title" align="center" style="font-weight:bold">Some elderly people have trouble getting in and out of the shower <br> or bath and need handles to stop themselves falling over. </h3>
-                                  <h3 class="title" align="center" style="font-weight:bold">Do you see any handles in your grandfather's bathroom like the one in the picture?</h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">Some elderly people have trouble getting in and out of the shower <br> or bath and need handle to stop themselves from falling over.</h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">Do you see any handle in your grandfather's bathroom like the one in the picture?</h3>
                                   {% endif %}
                                     <!-- <h3 class="title" align="center">{{ form.grab_bars.label}}</h3> -->
                                     <div align="center">
@@ -365,8 +360,8 @@ Did you see any?</h3>
                                 </div>
 
                                 <div class="extra noshow">
-                                  <h3 class="title" align="center" style="font-weight:bold">With the help of your elders take a broomstick and press the test button on the smoke detector </h3>
-                                  <h3 class="title" align="center" style="font-weight:bold">Did that made beep sound three times?</h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">With the help of your {{session['grandparent_gender']}} take a broomstick and press the test button on the smoke detector near the kitchen.</h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">Did it beep three times?</h3>
                                     <!-- <h3 class="title" align="center">{{ form.smoke_detector.label}}</h3> -->
                                     {{ form.smoke_detector() }}
                                     <div align="center">
@@ -384,7 +379,7 @@ Did you see any?</h3>
                                     <h3 class="title" align="center"><span
                                             style="color: red;font-size:14px;">[{{ error }}]</span>
                                         <h4 class="title" align="center"> {% endfor %}
-                                            <img src="static/images/smoke_detector.png" class="img-responsive"
+                                            <img src="static/images/sd.png" class="img-responsive"
                                                 alt="detective image" width="20%">
                                                 <div class="row" style="margin-top:20px;">
                                                   <div class="col-xs-6"><button class="btn btn-success pull-right" onclick="goToPage('settings')" type="button">Previous Question</button></div>
@@ -394,11 +389,11 @@ Did you see any?</h3>
 
                                 <div class="fire noshow">
                                   {% if session['grandparent_gender'] == "grandmother" %}
-                                  <h3 class="title" align="center" style="font-weight:bold">Fire extinguishers are important safety equipment but they are only useful if your grandmother can find it quickly.</h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">A fire extinguisher is important safety equipment but it is only useful if your grandmother can find it quickly.</h3>
                                     <h3 class="title" align="center" style="font-weight:bold">Ask your grandmother if she has a fire extinguisher at her house?</h3>
                                   {% endif %}
                                   {% if session['grandparent_gender'] == "grandfather" %}
-                                  <h3 class="title" align="center" style="font-weight:bold">Fire extinguishers are important safety equipment but they are only useful if your grandfather can find it quickly. </h3>
+                                  <h3 class="title" align="center" style="font-weight:bold">A fire extinguisher is important safety equipment but it is only useful if your grandfather can find it quickly.</h3>
                                   <h3 class="title" align="center" style="font-weight:bold">Ask your grandfather if he has a fire extinguisher at his house?</h3>
                                   {% endif %}
                                     <!-- <h3 class="title" align="center">{{ form.fire_extinguisher.label}}</h3> -->
@@ -441,13 +436,13 @@ Did you see any?</h3>
 
                 <div class="col-sm-12">
                     <div class="copyright-text text-center">
-                        <p style="color:red">Care360</p>
-                        <p style="color:red">
+                        <p style="color:black">Care360</p>
+                        <p style="color:black">
                             Disclaimer: We provide recommendations on the basis of Australian Government Home Safety
                             Guidelines for Older people.
                         </p>
-                        <p style="color:red"> Credits : WebUi Theme by Themeum</p>
-                        <p style="color:red"> Credit Images: Freepik.com</p>
+                        <p style="color:black"> Credits : WebUi Theme by Themeum</p>
+                        <p style="color:black"> Credit Images: Freepik.com</p>
                     </div>
                 </div>
             </div>

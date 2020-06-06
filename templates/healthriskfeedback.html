@@ -67,13 +67,9 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li class="active"><a href="{{ url_for('healthrisk')}}">Risk Assessment</a></li>
-            <!-- <li><a href="{{ url_for('generalsafety')}}">General Safety Guidelines</a></li> -->
-            <li><a href="{{ url_for('safetybycouncil')}}"> Natural Disaster Assist</a></li>
-            <!-- <li><a href="#"> COVID-19 Injuries Assist</a></li> -->
-            <!-- <li><a href="{{ url_for('login') }}">Admin Login</a></li> -->
-            <!-- <li><a href="#">Credits</a></li> -->
+            <li><a href="{{ url_for('index') }}"><strong>Home</strong></a></li>
+            <li class="active"><a href="{{ url_for('healthrisk')}}"><strong>Risk Assessment</strong></a></li>
+            <li><a href="{{ url_for('safetybycouncil')}}"><strong>Natural Disaster Assist</strong></a></li>
           </ul>
         </div>
 
@@ -87,10 +83,10 @@
       <div class="row">
         <div class="main-slider">
           <div class="slide-text">
-            <h1>Be an Analyzer of Your Grandparents</h1>
-            <p>
+            <h1><strong>Be an analyzer of your grandparents.</strong></h1>
+            <h3><strong>
               "Health is Wealth". Help your grandparents to sustain their valuable wealth.
-            </p>
+            </strong></h3>
 
           </div>
           <img src="static/images/Photos/kids/Artboard 4.png" class="slider-hill" alt="slider image" height="350px"
@@ -169,7 +165,7 @@
                       {% if session['bmi'] == 'obese' %}
                       <div class="text">
                         <h3 style="font-weight:bold">From the Body Mass Index(BMI), it seems that your {{ session['grandparent_gender'] }} weight is
-                          more than the average weight of people with same height.
+                          more than the average weight of people with the same height.
                           To ensure {% if session['grandparent_gender'] == 'grandfather' %}he {% else %} she {% endif %} is
                           risk-free, go on a walk with them every evening to park so they remain active and healthy.</h3>
                       </div>
@@ -267,7 +263,7 @@
                           grandmother {% endif %} about quit victoria
                           program that can help {% if session['grandparent_gender'] == 'grandfather' %}him {% else %} her
                           {% endif %} in quitting {% if session['grandparent_gender'] == 'grandfather' %}his {% else %}
-                          her.{% endif %} smoking habbits.</h3>
+                          her.{% endif %} smoking habits.</h3>
                       </div>
                     </td>
                     <td style="width:12%">
@@ -308,23 +304,31 @@
   </section>
 
   <section id="clients">
-      <div class="container">
-          <div class="row">
-              <div class="col-sm-12">
-                  <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-                    {% if session['physicalcondition_risk'] != "No" %}
-  <button name="submit" class="btn btn-success" type="button" value="Save" onclick="window.location.href='{{ url_for( 'physicalconditionfeedback') }}';" >Go to physical condition feedback</button>
-  {% endif %}
-<br>
-<br>
-{% if session['house_risk'] != "No" %}
-  <button name="submit" class="btn btn-success" type="button" value="Save" onclick="window.location.href='{{ url_for( 'housesafetyfeedback') }}';" >Go to house safety feedback</button>
-  {% endif %}
-
-                  </div>
-              </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+            {% if session['physicalcondition_risk'] != "No" %}
+            <button name="submit" class="btn btn-success" type="button" value="Save"
+              onclick="window.location.href='{{ url_for( 'physicalconditionfeedback') }}';">Go to physical condition
+              feedback</button>
+            {% endif %}
+            
+            {% if session['house_risk'] != "No" %}
+            <br>
+            <br>
+            <button name="submit" class="btn btn-success" type="button" value="Save"
+              onclick="window.location.href='{{ url_for( 'housesafetyfeedback') }}';">Go to house safety feedback</button>
+            {% endif %}
+            <br>
+            <br>
+            <button name="submit" class="btn btn-info" type="button" value="Save" style="height:50px;width:250px"
+              onclick="window.location.href='{{ url_for( 'index') }}';">Go back to the homepage</button>
+  
           </div>
+        </div>
       </div>
+    </div>
   </section>
 
   <footer id="footer">
@@ -336,13 +340,13 @@
 
         <div class="col-sm-12">
           <div class="copyright-text text-center">
-            <p style="color:red">Care360</p>
-            <p style="color:red">
+            <p style="color:black">Care360</p>
+            <p style="color:black">
               Disclaimer: We provide recommendations on the basis of Australian Government Home Safety Guidelines for
               Older people.
             </p>
-            <p style="color:red"> Credits : WebUi Theme by Themeum</p>
-            <p style="color:red"> Credit Images: Freepik.com</p>
+            <p style="color:black"> Credits : WebUi Theme by Themeum</p>
+            <p style="color:black"> Credit Images: Freepik.com</p>
           </div>
         </div>
       </div>
