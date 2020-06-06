@@ -31,7 +31,7 @@ class SafetyModule1(FlaskForm):
                     choices =[('Yes','Very easily on their own'),('Yes','Sometimes need help from people'), ('No','Can not manage easily')],validators=[DataRequired()])
 
     emergency_contact =  SelectField('Where do your grandparent keep their emergency contact details?',
-                    choices =[('Yes','On mobile phone'),('Yes','In address book'), ('No','They have memorised')],validators=[DataRequired()])
+                    choices =[('Yes','On mobile phone'),('Yes','In pager'),('Yes','In address book'), ('No','They have memorised')],validators=[DataRequired()])
 
 
     submit = SubmitField('Proceed to House Safety Assessment')
@@ -58,7 +58,7 @@ class SafetyModule2(FlaskForm):
                     choices =[('Yes','Yes'),('No','No')],validators=[DataRequired()])
 
     smoke_detector = RadioField('Do your grandparent\'s house has smokde detector installed?',
-                    choices =[('Yes','Yes it beeps three times'),('No','No, it doesn\'t make beep noise')],validators=[DataRequired()])
+                    choices =[('Yes','Yes, it beeps three times'),('No','No, it doesn\'t make beep noise')],validators=[DataRequired()])
 
     fire_extinguisher = RadioField('Is there a fire extinguisher in your grandparent\'s kitchen?',
                     choices =[('Yes','Yes, fire extinguisher present.'),('No','No, fire extinguisher not present')],validators=[DataRequired()])
@@ -106,8 +106,8 @@ class HealthRiskForm(FlaskForm):
     height_unit = SelectField('Select the unit to enter the height.',
                         choices=[('Feets','Feet'),('Centimeters','Centimeters')], validators=[DataRequired()], render_kw={'onchange': "height_function()"})
 
-    height_feet = IntegerField('Enter the feets',validators=[Optional(), NumberRange(min=3, max=8)], render_kw={'onchange': "feet_verification()"})
-    height_inches = IntegerField('Enter the inches',validators=[Optional(), NumberRange(min=1, max=12)], render_kw={'onchange': "inches_verification()"})
+    height_feet = IntegerField('Enter the feet',validators=[Optional(), NumberRange(min=3, max=8)], render_kw={'onchange': "feet_verification()"})
+    height_inches = SelectField('Enter the inches', choices=[('0','0'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('8','8'),('9','9'),('10','10'),('11','11')], validators=[Optional()], render_kw={'onchange': "inches_verification()"})
     height_centimeters = IntegerField('Enter the height in centimeters',validators=[Optional(), NumberRange(min=1, max=1000)], render_kw={'onchange': "centimeter_verification()"})
 
     #height = FloatField('What is your grandparent height?', validators=[DataRequired()])
