@@ -12,7 +12,7 @@ import csv
 import pickle
 ##importing the machine learning libraries
 from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier ######need to write
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
@@ -460,7 +460,7 @@ def healthrisk():
 
         if form.height_unit.data == "Feets":
             feetdata = form.height_feet.data
-            inchesdata = form.height_inches.data
+            inchesdata = int(form.height_inches.data)
             height = feetdata + float(0.1*inchesdata)
 
         elif form.height_unit.data == "Centimeters":
